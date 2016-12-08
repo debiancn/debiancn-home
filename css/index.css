@@ -1,0 +1,129 @@
+.mainbox{
+    margin:0 auto;
+    width:1150px;
+    height:1020px;
+    margin-top:50px;
+}
+.content-right{
+    float:right;
+    width:270px;
+    height:530px;
+}
+.content-left{
+    float:left;
+    width:790px;
+    height:995px;
+}
+.links{
+    padding:20px;
+    background-color:#FFFFFF;
+    width:230px;
+    height:260px;
+    margin-bottom:50px;
+}
+.headline{
+    margin:5px;
+    border-bottom:1px;
+    border-bottom-style:solid;
+    border-bottom-color:grey;
+}
+.links-row{
+    font-size:0.8em;
+    width:230px;
+    height:210px;
+    padding-left:20px;
+    padding-top:15px;
+    padding-bottom:20px
+}
+.links-row p a{
+    margin-bottom:10px;
+}
+.sponor{
+    padding:10px;
+    background-color:#FFFFFF;
+    width:250px;
+    height:159px;
+}
+.welcome{
+    padding:20px;
+    background-color:#FFFFFF;
+    width:750px;
+    height:200px;
+    margin-bottom:50px;
+}
+.news{
+    padding:20px;
+    background-color:#FFFFFF;
+    width:750px;
+    height:295px;
+    margin-bottom:50px;
+}
+.headline a{
+    font-size:0.6em;
+    float:right;
+    padding-top:7px;
+}
+.tbl-news{
+    margin:20px;
+    margin-top:20px;
+    margin-right:40px;
+    font-size:0.9em
+}
+.tbl-news br{
+    height:30px;
+}
+.tbl-td1{
+    width:150px;
+    padding-left:50px;
+}
+.tbl-td2{
+    width:370px;
+}
+.bgGrey{
+    background-color:#E4E4E4;
+}
+.tbl-sec{
+    margin:10px;
+    margin-top:25px;
+    font-size:0.8em;
+}
+.tbl-sec br{
+    height:30px;
+}
+.securenews{
+    background-color:#FFFFFF;
+    float:right;
+    width:320px;
+    height:300px;
+    padding:20px;
+}
+.starter{
+    padding:20px;
+    background-color:#FFFFFF;
+    width:320px;
+    height:300px;
+}
+.news-body{
+    padding-left:20px;
+    padding-right:20px;
+    margin-top:30px;
+    width:100%;
+    height:250px;
+    border:1px;
+    border-style:solid;
+}
+.starter p{
+    font-size:0.8em;
+    text-indent:2em;
+    padding-right:10px;
+}
+.footer0{
+    background-color:#FFFFFF;
+    margin-top:1100px;
+    width:100%;
+    height:70px;
+    border-top:5px;
+    border-top-style:solid;
+    border-top-color:#D24C72;
+    font-size:0.8em;
+}

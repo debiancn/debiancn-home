@@ -1,0 +1,78 @@
+body{
+  margin:0px;
+  padding:0px;
+}
+div{
+  border:1px solid;
+}
+.header{
+  width:inherit;
+  height:65px;
+}
+.icon{
+  width:338pt;
+  height:inherit;
+  margin-left:6%;
+}
+.negbar{
+  width:inherit;
+  height:40px;
+  margin-bottom:50px;
+  border-bottom:5px solid #D24C72;
+}
+.negrow{
+  height:inherit;
+  margin-left:10%;
+  margin-right:20%;
+}
+.mainbox{
+  width:inherit;
+  height:1000px;
+}
+.content-right{
+  float:right;
+  height:inherit;
+  width:20%;
+  margin-right:10%;
+}
+.links{
+  width:100%;
+  height:30%;
+  margin-bottom:20%;
+
+}
+.sponor{
+  width:100%;
+  height:20%;
+}
+.content-left{
+  height:inherit;
+  width:40%;
+  margin-left:10%;
+}
+.welcome{
+  width:100%;
+  height:25%;
+  margin-bottom:25%;
+}
+.news{
+  width:100%;
+  height:30%;
+  margin-bottom:10%;
+}
+.secureupdate{
+  float:right;
+  width:45%;
+  height:30%;
+}
+.starter{
+  width:45%;
+  height:30%;
+}
+
+.footer{
+  width:inherit;
+  height:75px;
+  border-top:5px solid #D24C72;
+  margin-top:50px;
+}
