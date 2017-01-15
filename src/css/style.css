@@ -2,6 +2,7 @@
 html, body, div, ul, ol, li, form, tr, td, th, tbody, thead, tfoot, dl, dt, dd, h1, h2, h3, h4, h5, h6{ margin: 0; padding: 0; font-size: 14px; }
 ul li{ list-style: none; }
 a{ text-decoration: none; color: #5b5b6c; }
+p{ line-height: 24px; }
 
 body{ background-color: #e0e0e0; }
 .mainContent{ max-width: 1300px; margin: auto; }
@@ -13,7 +14,7 @@ body{ background-color: #e0e0e0; }
       .pageNavTop a:hover{ background-color: #e4e4e4;}
     .pageNavTop .helpusLink{ float: right; }
 
-.mainContent{ width: 100%; background-color: #e0e0e0; padding-top: 45px; position: relative; }
+.mainContent{ width: 96%; background-color: #e0e0e0; padding-top: 45px; position: relative; margin: auto; }
   .mainContent::after{ content: ""; clear: both; display: block; overflow: hidden; }
   .welcomeDiv, .headline, .forTheFirstTime, .secureUpdates, .news, .friendLink, .supported{ padding: 20px; width: 70%; margin-bottom: 50px; background-color: #fff;   }
   .welcomeDiv h3, .headline h3, .forTheFirstTime h3, .secureUpdates h3, .friendLink h3, .supported h3{ padding: 5px; padding-bottom: 0; border-bottom: 1px solid grey; }
@@ -37,8 +38,8 @@ body{ background-color: #e0e0e0; }
       .forTheFirstTime p{ text-indent: 1em; }
     .secureUpdates{ float: right; width: 42.5%; position: relative; left: 40px;  }
       .secureUpdates li{ width: 100%;  }
-      .secureUpdates li div:nth-child(1){ float: left; width: 45%; text-indent: 3px; }
-      .secureUpdates li div:nth-child(2){ float: left; width: 55%; }
+      .secureUpdates li div:nth-child(1){ float: left; width: 109px; text-indent: 3px; display: inline-block; }
+      .secureUpdates li div:nth-child(2){ float: left; width: auto; display: inline-block; text-overflow: ellipsis; overflow: hidden; max-width: 53%; white-space: nowrap;  }
 
   .helpMsg{ width: 24%; min-width: 140px; position: absolute; top: 45px; right: 0; background-color: rgba(0,0,0,0); }
     .friendLinkBtn{ width: 20px; height: 20px; position: absolute; top: 0; right: 0; border: 1px solid #000; display: none; }
