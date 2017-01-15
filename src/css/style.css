@@ -1,0 +1,72 @@
+@charset "UTF-8";
+html, body, div, ul, ol, li, form, tr, td, th, tbody, thead, tfoot, dl, dt, dd, h1, h2, h3, h4, h5, h6{ margin: 0; padding: 0; font-size: 14px; }
+ul li{ list-style: none; }
+a{ text-decoration: none; color: #5b5b6c; }
+
+body{ background-color: #e0e0e0; }
+.mainContent{ max-width: 1300px; margin: auto; }
+.header{ background-color: #e0e0e0; border-bottom: 5px solid #D24C72; /*min-width: 700px;*/ }
+  .pageLogoTop{ text-indent: 2rem; display: block; width: 100%; }
+  .pageNavTop ul{ overflow: hidden; background-color: #fff;}
+    .pageNavTop li{ float: left; width: 100px; height: 35px; line-height: 35px; text-align: center; }
+      .pageNavTop a{ display: block; width: 100%; height: 100%; }
+      .pageNavTop a:hover{ background-color: #e4e4e4;}
+    .pageNavTop .helpusLink{ float: right; }
+
+.mainContent{ width: 100%; background-color: #e0e0e0; padding-top: 45px; position: relative; }
+  .mainContent::after{ content: ""; clear: both; display: block; overflow: hidden; }
+  .welcomeDiv, .headline, .forTheFirstTime, .secureUpdates, .news, .friendLink, .supported{ padding: 20px; width: 70%; margin-bottom: 50px; background-color: #fff;   }
+  .welcomeDiv h3, .headline h3, .forTheFirstTime h3, .secureUpdates h3, .friendLink h3, .supported h3{ padding: 5px; padding-bottom: 0; border-bottom: 1px solid grey; }
+  .welcomeDiv p, .headline ul{ font-size: 0.9rem; }
+  .welcomeDiv p{ text-indent: 1em; }
+
+  .headline{}
+  .headline a, .secureUpdates a{  color: #1F37F4; }
+  .headline h3 a, .secureUpdates h3 a{ text-align: right; font-size: 12px; float: right; }
+  .headline ul, .secureUpdates ul{ margin-top: 20px; }
+  .headline li{ width: 100%; height: 28px; line-height: 28px; }
+  .headline li:nth-child(2n+1), .secureUpdates li:nth-child(2n+1){ background-color: #e4e4e4; }
+    .headline::after, .secureUpdates li::after, .news::after{ content: ""; clear: both; overflow: hidden; height: 0; display: block; }
+    .headline li div:nth-child(1){ float: left; width: 20%; text-indent: 1rem; }
+    .headline li div:nth-child(2){ float: left; text-align: left; width: 53%; }
+    .headline li div:nth-child(3){ float: right; width: 14%; text-align: right; padding-right: 1%; }
+    .headline li::after{ content: ""; overflow: hidden; clear: both; display: block; height: 0;}
+
+  .news{ padding: 0; background-color: #e0e0e0; margin-bottom: 0; }
+    .forTheFirstTime{ width: 42.5%; float: left; }
+      .forTheFirstTime p{ text-indent: 1em; }
+    .secureUpdates{ float: right; width: 42.5%; position: relative; left: 40px;  }
+      .secureUpdates li{ width: 100%;  }
+      .secureUpdates li div:nth-child(1){ float: left; width: 45%; text-indent: 3px; }
+      .secureUpdates li div:nth-child(2){ float: left; width: 55%; }
+
+  .helpMsg{ width: 24%; min-width: 140px; position: absolute; top: 45px; right: 0; background-color: rgba(0,0,0,0); }
+    .friendLinkBtn{ width: 20px; height: 20px; position: absolute; top: 0; right: 0; border: 1px solid #000; display: none; }
+    .friendLink{ float: right; margin-bottom: 50px; width: 77%;  }
+      .friendLink li{ height: 28px; line-height: 29px; width: 100%; }
+    .supported{ float: right; width: 77%; }
+      .supported img{ width: 100%; }
+
+
+.footer{ text-align: center; border-top: 5px solid #D24C72; background-color: #fff; padding: 5px 0; }
+
+@media ( max-width: 800px ) {
+    .pageLogoTop{ text-indent: 0;  }
+    .pageNavTop{ overflow-x: auto; min-width: 100%;  }
+      .pageNavTop ul{ min-width: 700px; }
+  .mainContent{ padding-top: 10px; }
+    .welcomeDiv, .headline, .forTheFirstTime, .secureUpdates{ width: 98%; padding: 1%; margin-bottom: 10px; }
+    .headline li{ height: 56px; position: relative; }
+      .headline li div:nth-child(1){ float: none; width: 48%; margin-left: 1%; text-indent: 0;}
+      .headline li div:nth-child(2){ float: none; width: 96%; margin-left: 1%;}
+      .headline li:nth-child(2n+1) div:nth-child(2){ border-top: 1px solid #fff; }
+      .headline li:nth-child(2n) div:nth-child(2){ border-top: 1px solid #e4e4e4; }
+      .headline li div:nth-child(3){ float: none; width: 48%; position: absolute; top:0; right: 1%; }
+    .news{ width: 100%;  }
+      .forTheFirstTime, .secureUpdates{ width: 98%; padding: 1%; float: none; left: 0; }
+
+    /*.helpMsg{ height: 0; overflow: hidden; }*/
+    .friendLink{ display: none;}
+    .supported{ display: none; }
+    /*.friendLinkBtn{ display: block; }*/
+}
