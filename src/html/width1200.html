@@ -9,66 +9,105 @@
     <link href="../css/libs/normalize.min.css" rel="stylesheet"/>
     <style>
 
+     html{
+	 background-color: #aaa;
+     }
      /* because of my broken input method ( fcitx ) */
      /*  */
      /* main container */
-     .main{ max-width: 1200px; width: 100%; margin: auto; border: 1px solid #aaa; background-color: #aaa; }
-     .main::after{ content:""; display: block; clear: both; height: 0; }
-     /* main side container */
-     .mainContent{}
-     /* another side container */
-     .solider{}
-     /* split the width of 100% to 12 cols  */
-     .col-1, .col-2, .col-3, .col-4, .col-6, .col-8, .col-12,{ border: 1px solid #fff; margin: 20px; background-color: #fff; float: left; }
-     .col-1{ width: auto; }
-     .col-2{ width: auto; }
-     .col-3{ width: auto; }
-     .col-4{ width: auto; }
-     .col-6{ width: auto; }
-     .col-8{ width: auto; }
-     .col-12{ width: auto; }
-     /* media query for all screens to select the right width */
-     @media ( min-width: 1200px ) {
-	 .col-2{ width: ; }
-	 .col-3{ width: 358px; }
+     .mainContainer{
+	 max-width: 1200px;
+	 margin: auto;
+	 border-top: 1px solid #fff;
+	 border-bottom: 1px solid #fff;
+	 background-color: #fff;
      }
-     /* the first content for debiancn-home page */
-     .paragraphTitle{ font-weight: 500; margin: 20px; border-bottom: 1px solid #ccc;  }     
-     .paragraphContent{ margin: 20px; }
-     .paragraphContent p{ line-height: 30px; }
+     /* 介绍文字 container */
+     .welcomeContainer{
+	 border: 1px solid red;
+     }
+     /* debian详细内容 container */
+     .detailsOfDebian{
+	 border: 1px solid orange;
+     }
+     .mainContent{
+	 border: 1px solid yellow;
+     }
+     /* 侧边栏 container */
+     .solider{
+	 border: 1px solid green;
+     }
+     .detailsOfDebian, .welcomeContainer, .mainContent, .solider, .guideAndNewsContainer{
+	 -webkit-flex: auto;
+	 flex: auto;
+	 display: -webkit-flex;
+	 display: flex;
+	 -webkit-flex-direction: column;
+	 flex-direction: column;
+     }
+     /* split the width of 100% to 12 cols  */
+     .col-1, .col-2, .col-3{
+	 border: 1px solid #000;
+	 margin: 20px;
+	 background-color: #fff;
+	 -webkit-flex: auto;
+	 flex: auto;
+	 -webkit-flex: 1;
+	 flex: 1;
+     }
+     /*
+     .col-1{
+	 -webkit-flex: 1;
+	 flex: 1;
+     }
+     .col-2{
+	 -webkit-flex: 2;
+	 flex: 2;
+     }
+     .col-3{
+	 -webkit-flex: 3;
+	 flex: 3;
+     }
+     .col-4{
+	 -webkit-flex: 4;
+	 flex: 4;
+     }
+     */
+     /* media query for all screens to select the right width */
+     @media ( min-width: 800px ) {
+	 .guideAndNewsContainer{
+	     -webkit-flex-direction: row;
+	     flex-direction: row;
+	 }
+	 .col-2, .col-3{
+	     -webkit-flex: 2;
+	     flex: 2;
+	 }
+     }
+     @media ( min-width: 1200px ) {
+	 .detailsOfDebian{
+	     -webkit-flex-direction: row;
+	     flex-direction: row;
+	 }
+     }
+     /* #text the first content for debiancn-home page */
+     .paragraphTitle{
+	 font-weight: 500;
+	 margin: 20px;
+	 border-bottom: 1px solid #ccc;
+     }
+     .paragraphContent{
+	 margin: 20px;
+     }
+     .paragraphContent p{
+	 line-height: 30px;
+     }
     </style>
     
   </head>
   <body>
-      <div class="main">
-	  <div class="col-1">
-	      <h3 class="paragraphTitle">欢迎来到 Debian 中文社区</h3>
-	      <div class="paragraphContent">
-		  <p>Debian 是一个自由的操作系统（OS），供您安装在计算机上使用。</p>
-		  <p>Debian 系统目前采用 Linux 内核或者 FreeBSD 内核。 Linux 是一个最初由 Linus Torvalds 创建，目前由全球成千上万的程序师共同维护的软件。 FreeBSD 是一个包括内核和其它软件的操作系统。</p>
-		  <p>Debian 不只是提供一个纯粹的操作系统：它还附带了超过 43000 个软件包，这些预先编译好的软件被包裹成一种良好的格式以便于在您的机器上进行安装。</p>
-		  <p>Debian中文社区是一个专门为Debian中文用户而创建的社区。希望为中文用户的学习交流提供一席之地。也希望能有更多人爱上这个自由伟大的操作系统。</p>
-	      </div>
-	  </div>
-	  <div class="col-2">
-	      <div class="col-3">
-		  <h3 class="paragraphTitle">欢迎来到 Debian 中文社区</h3>
-		  <div class="paragraphContent">
-		      <p>Debian 是一个自由的操作系统（OS），供您安装在计算机上使用。</p>
-		      <p>Debian 系统目前采用 Linux 内核或者 FreeBSD 内核。 Linux 是一个最初由 Linus Torvalds 创建，目前由全球成千上万的程序师共同维护的软件。 FreeBSD 是一个包括内核和其它软件的操作系统。</p>
-		      <p>Debian 不只是提供一个纯粹的操作系统：它还附带了超过 43000 个软件包，这些预先编译好的软件被包裹成一种良好的格式以便于在您的机器上进行安装。</p>
-		      <p>Debian中文社区是一个专门为Debian中文用户而创建的社区。希望为中文用户的学习交流提供一席之地。也希望能有更多人爱上这个自由伟大的操作系统。</p>
-		  </div>
-	      </div>
-	      <div class="col-3">
-		  <h3 class="paragraphTitle">欢迎来到 Debian 中文社区</h3>
-		  <div class="paragraphContent">
-		      <p>Debian 是一个自由的操作系统（OS），供您安装在计算机上使用。</p>
-		      <p>Debian 系统目前采用 Linux 内核或者 FreeBSD 内核。 Linux 是一个最初由 Linus Torvalds 创建，目前由全球成千上万的程序师共同维护的软件。 FreeBSD 是一个包括内核和其它软件的操作系统。</p>
-		      <p>Debian 不只是提供一个纯粹的操作系统：它还附带了超过 43000 个软件包，这些预先编译好的软件被包裹成一种良好的格式以便于在您的机器上进行安装。</p>
-		      <p>Debian中文社区是一个专门为Debian中文用户而创建的社区。希望为中文用户的学习交流提供一席之地。也希望能有更多人爱上这个自由伟大的操作系统。</p>
-		  </div>
-	      </div>
+      <div class="mainContainer">
+	  <div class="welcomeContainer">
 	      <div class="col-3">
 		  <h3 class="paragraphTitle">欢迎来到 Debian 中文社区</h3>
 		  <div class="paragraphContent">
@@ -79,26 +118,69 @@
 		  </div>
 	      </div>
 	  </div>
-	  <div class="col-1">
-	      <div class="col-1">
-		  <h3 class="paragraphTitle">欢迎来到 Debian 中文社区</h3>
-		  <div class="paragraphContent">
-		      <p>Debian 是一个自由的操作系统（OS），供您安装在计算机上使用。</p>
-		      <p>Debian 系统目前采用 Linux 内核或者 FreeBSD 内核。 Linux 是一个最初由 Linus Torvalds 创建，目前由全球成千上万的程序师共同维护的软件。 FreeBSD 是一个包括内核和其它软件的操作系统。</p>
-		      <p>Debian 不只是提供一个纯粹的操作系统：它还附带了超过 43000 个软件包，这些预先编译好的软件被包裹成一种良好的格式以便于在您的机器上进行安装。</p>
-		      <p>Debian中文社区是一个专门为Debian中文用户而创建的社区。希望为中文用户的学习交流提供一席之地。也希望能有更多人爱上这个自由伟大的操作系统。</p>
+	  <div class="detailsOfDebian">
+	      <div class="mainContent">
+		  <div class="col-2">
+		      <h3 class="paragraphTitle">欢迎来到 Debian 中文社区</h3>
+		      <div class="paragraphContent">
+			  <p>Debian 是一个自由的操作系统（OS），供您安装在计算机上使用。</p>
+			  <p>Debian 系统目前采用 Linux 内核或者 FreeBSD 内核。 Linux 是一个最初由 Linus Torvalds 创建，目前由全球成千上万的程序师共同维护的软件。 FreeBSD 是一个包括内核和其它软件的操作系统。</p>
+			  <p>Debian 不只是提供一个纯粹的操作系统：它还附带了超过 43000 个软件包，这些预先编译好的软件被包裹成一种良好的格式以便于在您的机器上进行安装。</p>
+			  <p>Debian中文社区是一个专门为Debian中文用户而创建的社区。希望为中文用户的学习交流提供一席之地。也希望能有更多人爱上这个自由伟大的操作系统。</p>
+		      </div>
+		  </div>
+		  <div class="col-2">
+		      <h3 class="paragraphTitle">欢迎来到 Debian 中文社区</h3>
+		      <div class="paragraphContent">
+			  <p>Debian 是一个自由的操作系统（OS），供您安装在计算机上使用。</p>
+			  <p>Debian 系统目前采用 Linux 内核或者 FreeBSD 内核。 Linux 是一个最初由 Linus Torvalds 创建，目前由全球成千上万的程序师共同维护的软件。 FreeBSD 是一个包括内核和其它软件的操作系统。</p>
+			  <p>Debian 不只是提供一个纯粹的操作系统：它还附带了超过 43000 个软件包，这些预先编译好的软件被包裹成一种良好的格式以便于在您的机器上进行安装。</p>
+			  <p>Debian中文社区是一个专门为Debian中文用户而创建的社区。希望为中文用户的学习交流提供一席之地。也希望能有更多人爱上这个自由伟大的操作系统。</p>
+		      </div>
+		  </div>
+		  <div class="guideAndNewsContainer">
+		      <div class="col-1">
+			  <h3 class="paragraphTitle">欢迎来到 Debian 中文社区</h3>
+			  <div class="paragraphContent">
+			      <p>Debian 是一个自由的操作系统（OS），供您安装在计算机上使用。</p>
+			      <p>Debian 系统目前采用 Linux 内核或者 FreeBSD 内核。 Linux 是一个最初由 Linus Torvalds 创建，目前由全球成千上万的程序师共同维护的软件。 FreeBSD 是一个包括内核和其它软件的操作系统。</p>
+			      <p>Debian 不只是提供一个纯粹的操作系统：它还附带了超过 43000 个软件包，这些预先编译好的软件被包裹成一种良好的格式以便于在您的机器上进行安装。</p>
+			      <p>Debian中文社区是一个专门为Debian中文用户而创建的社区。希望为中文用户的学习交流提供一席之地。也希望能有更多人爱上这个自由伟大的操作系统。</p>
+			  </div>
+		      </div>
+		      <div class="col-1">
+			  <h3 class="paragraphTitle">欢迎来到 Debian 中文社区</h3>
+			  <div class="paragraphContent">
+			      <p>Debian 是一个自由的操作系统（OS），供您安装在计算机上使用。</p>
+			      <p>Debian 系统目前采用 Linux 内核或者 FreeBSD 内核。 Linux 是一个最初由 Linus Torvalds 创建，目前由全球成千上万的程序师共同维护的软件。 FreeBSD 是一个包括内核和其它软件的操作系统。</p>
+			      <p>Debian 不只是提供一个纯粹的操作系统：它还附带了超过 43000 个软件包，这些预先编译好的软件被包裹成一种良好的格式以便于在您的机器上进行安装。</p>
+			      <p>Debian中文社区是一个专门为Debian中文用户而创建的社区。希望为中文用户的学习交流提供一席之地。也希望能有更多人爱上这个自由伟大的操作系统。</p>
+			  </div>
+		      </div>
 		  </div>
 	      </div>
-	      <div class="col-1">
-		  <h3 class="paragraphTitle">欢迎来到 Debian 中文社区</h3>
-		  <div class="paragraphContent">
-		      <p>Debian 是一个自由的操作系统（OS），供您安装在计算机上使用。</p>
-		      <p>Debian 系统目前采用 Linux 内核或者 FreeBSD 内核。 Linux 是一个最初由 Linus Torvalds 创建，目前由全球成千上万的程序师共同维护的软件。 FreeBSD 是一个包括内核和其它软件的操作系统。</p>
-		      <p>Debian 不只是提供一个纯粹的操作系统：它还附带了超过 43000 个软件包，这些预先编译好的软件被包裹成一种良好的格式以便于在您的机器上进行安装。</p>
-		      <p>Debian中文社区是一个专门为Debian中文用户而创建的社区。希望为中文用户的学习交流提供一席之地。也希望能有更多人爱上这个自由伟大的操作系统。</p>
+	      <div class="solider">
+		  <div class="col-1">
+		      <h3 class="paragraphTitle">欢迎来到 Debian 中文社区</h3>
+		      <div class="paragraphContent">
+			  <p>Debian 是一个自由的操作系统（OS），供您安装在计算机上使用。</p>
+			  <p>Debian 系统目前采用 Linux 内核或者 FreeBSD 内核。 Linux 是一个最初由 Linus Torvalds 创建，目前由全球成千上万的程序师共同维护的软件。 FreeBSD 是一个包括内核和其它软件的操作系统。</p>
+			  <p>Debian 不只是提供一个纯粹的操作系统：它还附带了超过 43000 个软件包，这些预先编译好的软件被包裹成一种良好的格式以便于在您的机器上进行安装。</p>
+			  <p>Debian中文社区是一个专门为Debian中文用户而创建的社区。希望为中文用户的学习交流提供一席之地。也希望能有更多人爱上这个自由伟大的操作系统。</p>
+		      </div>
+		  </div>
+		  <div class="col-1">
+		      <h3 class="paragraphTitle">欢迎来到 Debian 中文社区</h3>
+		      <div class="paragraphContent">
+			  <p>Debian 是一个自由的操作系统（OS），供您安装在计算机上使用。</p>
+			  <p>Debian 系统目前采用 Linux 内核或者 FreeBSD 内核。 Linux 是一个最初由 Linus Torvalds 创建，目前由全球成千上万的程序师共同维护的软件。 FreeBSD 是一个包括内核和其它软件的操作系统。</p>
+			  <p>Debian 不只是提供一个纯粹的操作系统：它还附带了超过 43000 个软件包，这些预先编译好的软件被包裹成一种良好的格式以便于在您的机器上进行安装。</p>
+			  <p>Debian中文社区是一个专门为Debian中文用户而创建的社区。希望为中文用户的学习交流提供一席之地。也希望能有更多人爱上这个自由伟大的操作系统。</p>
+		      </div>
 		  </div>
 	      </div>
 	  </div>
-      </div>
+	  </div>
+	  
   </body>
 </html>
