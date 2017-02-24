@@ -24,7 +24,6 @@
 		'top':'0',
 		'left':'0'
 	    });
-/*	    $( '.menuList' ).hide();*/
 	}
     }
     $( window ).bind( 'load', function(){
@@ -34,4 +33,20 @@
     }).bind( 'resize', function(){
 	topFixed();
     });
+    /* 设置菜单栏三个a标签点击时切换页面显示内容 */
+    $('.indexClick').on( 'click', function(){
+	$('.mainContainer').hide();
+	$('.layoutIndex').show();
+    });
+    $('.contactClick').on( 'click', function(){
+	$('.mainContainer').hide();
+	$('.layoutContact').show();
+    });
+    $('.donateClick').on( 'click', function(){
+	$('.mainContainer').hide();
+	$('.layoutDonate').show();
+    });
+    /* 默认设置显示第一个布局 */
+    $('.mainContainer').hide();
+    $('.layoutIndex').show();
 }());

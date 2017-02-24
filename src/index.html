@@ -24,19 +24,19 @@
 	  </div>
 	  <div class="menuListDiv">
 	    <ul class="menuList clearfix mobi_hide">
-	      <li class="menuListSelected"><a href="javascript:;">首页</a></li>
+	      <li class="menuListSelected"><a href="javascript:;" class="indexClick">首页</a></li>
 	      <li><a href="https://forums.debiancn.org/">论坛</a></li>
 	      <li><a href="http://wiki.debiancn.org/">WIKI</a></li>
 	      <li><a href="http://irc.debiancn.org/">聊天室</a></li>
 	      <li><a href="https://www.debian.org/distrib/">下载</a></li>
-	      <li><a href="./html/contact.html">联系我们</a></li>
-	      <li class="menuListLast"><a href="./html/donate.html">捐助我们</a></li>
+	      <li><a href="javascript:;" class="contactClick">联系我们</a></li>
+	      <li class="menuListLast"><a href="javascript:;" class="donateClick" >捐助我们</a></li>
 	    </ul>
 	  </div>
 	</nav>
       </header>
 
-	<div class="mainContainer">
+	<div class="mainContainer layoutIndex">
 	  <div class="welcomeContainer">
 	      <div class="col-3">
 		  <h3 class="paragraphTitle">欢迎来到 Debian 中文社区</h3>
@@ -161,7 +161,35 @@
 	      </div>
 	  </div>
       </div>
-      
+
+	<div class="mainContainer layoutContact">
+	  <div class="col-1">
+	    <h3 class="paragraphTitle">和我们取得联系</h3>
+	    <div class="paragraphContent">
+	      <p>如果对Deiban中文社区有什么意见和建议，或者想要与我们进行合作。你可以通过以下方式和我们取得联系：</p>
+	      <ol class="contactList">
+		<li>对社区的任何看法和建议都可以在Debian中文论坛的 社区建设 版块畅所欲言。</li>
+		<li>你也可以发邮件到 service@debiancn.com 告诉我们你的看法。我们会尽快回复你。</li>
+	      </ol>
+	    </div>
+	  </div>
+	</div>
+
+	<div class="mainContainer layoutDonate">
+	  <div class="col-1">
+	    <h3 class="paragraphTitle">捐助我们</h3>
+	    <div class="paragraphContent">
+	      <p>Deiban中文社区是一个非营利公益性站点，给所有 Deiban 的中文用户提供一个网上交流学习的场所。</p>
+	      <p>如果你想捐助我们的网站，可以通过扫描以下二维码使用支付宝给我们捐款。</p>
+	      <p>受捐所得将全部用于社区建设。</p>
+	      <p>在此谢谢所有捐助、帮助过 Deiban 中文社区的人！</p>
+	      <div>
+		<img alt="" src="./images/donateUs.jpg"/>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	
       <footer>
 	<p>© 2016 - Debian 中文社区</p>
 	<p>Debian 是 Software in the Public Interest, Inc. 的注册商标。</p>

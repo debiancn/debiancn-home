@@ -122,7 +122,8 @@ p{ text-indent:1.5em; }
      }
      /* split the width of 100% to 12 cols  */
      .col-1, .col-2, .col-3{
-	 /*border: 1px solid #000;*/
+	 border-top: 1px solid #fff;
+	 border-bottom: 1px solid #fff;
 	 margin: 20px;
 	 background-color: #fff;
 	 -webkit-flex: auto;
@@ -186,6 +187,21 @@ p{ text-indent:1.5em; }
      }
      .linkLists li{
 	 line-height: 30px;
+     }
+
+     .layoutContact{
+	 line-height: 2em;
+     }
+     .contactList li{
+	 list-style-position: inside;
+	 text-indent: 3em;
+     }
+
+     .layoutDonate{
+	 text-align: center;
+     }
+     .layoutDonate h3{
+	 text-align: left;
      }
 /* 页脚 */
 footer{ text-align: center; line-height: 19px; }
