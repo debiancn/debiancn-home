@@ -49,4 +49,11 @@
     /* 默认设置显示第一个布局 */
     $('.mainContainer').hide();
     $('.layoutIndex').show();
+    /* IE warning */
+    if( navigator.appName === 'Microsoft Internet Explorer' && navigator.appVersion <= 4 ){
+	$('.IEWarning').show();
+	$('.closeIEWarning').one( 'click', function(){
+	    $('.IEWarning').hide();
+	});
+    }
 }());

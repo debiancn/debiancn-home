@@ -218,3 +218,41 @@ footer{ text-align: center; line-height: 19px; }
     .ls_container{ min-width: auto; }
     .menuList li{ width: 100%; }
 }
+
+/* IE warning */
+.IEWarning{
+/*    display: none;*/
+    text-align: center;
+    margin-bottom: 20px;
+    line-height: 20px;
+    color: #D24C72;
+    position: relative;
+}
+.IEWarning strong{
+    /*color: red;*/
+}
+.closeIEWarning{
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.closeIEWarning::before, .closeIEWarning::after{
+    content: '';
+    display: block;
+    background-color: #D24C72;
+    position: absolute;
+    left: 4px;
+    width: 25px;
+    height: 5px;
+    border-radius: 10px;
+			 }
+.closeIEWarning::before{
+    top: 5px;
+    transform: rotate(45deg) translateY(7px) translateZ(2px);
+}
+.closeIEWarning::after{
+    top: 15px;
+    transform: rotate(-45deg) translateY(-7px) translateZ(2px);
+}
