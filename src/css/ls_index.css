@@ -221,7 +221,7 @@ footer{ text-align: center; line-height: 19px; }
 
 /* IE warning */
 .IEWarning{
-/*    display: none;*/
+    display: none;
     text-align: center;
     margin-bottom: 20px;
     line-height: 20px;
