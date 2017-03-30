@@ -51,9 +51,10 @@
     $('.layoutIndex').show();
     /* IE warning */
     if( navigator.appName === 'Microsoft Internet Explorer' && navigator.appVersion <= 4 ){
+	$('.IEWarning').appendChild($('<div class="closeIEWarning"></div><p>Please update your IE browser, or install a <strong>Modern browser</strong> instead of the old IE browser which you are using now!</p><p><a href="https://www.microsoft.com/en-us/download/internet-explorer.aspx">This link is the Popular Internet Explorer downloads from Microsoft.</a></p><p><a href="https://www.google.cn/chrome/">This link is can help you get chrome for your computer</a>, but often slowly. <a href="https://www.google.com/chrome/">This link can be used for user with a international Internet connection.</a></p><p>Now, click this area to hide this warning.</p>'));
 	$('.IEWarning').show();
 	$('.closeIEWarning').one( 'click', function(){
-	    $('.IEWarning').hide();
+	    $('.IEWarning').empty();
 	});
     }
 }());

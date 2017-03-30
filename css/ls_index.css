@@ -176,6 +176,8 @@ p{ text-indent:1.5em; }
      .paragraphTitle{
 	 margin: 20px;
 	 border-bottom: 1px solid #ccc;
+	 text-indent: 10px;
+	 line-height: 30px;
      }
      .moreMsg{
 	 float: right;
