@@ -4,7 +4,7 @@ html{ background: url('../images/bg.png'); }
 p{ text-indent:1.5em; }
 .ls_container{ width: 100%; margin: auto; }
 .logoContainer{ text-align: left; text-indent: 120px; max-width: 1200px; margin: auto; }
-.navigationContainer{ text-align: center; width: 100%; }
+.navigationContainer{ text-align: center; width: 100%; background-color: #fff;}
  .navButton{ height: 35px; line-height: 35px; }
   .navMobi>div{ height: 35px; float: left; }
    .navMobiLeft{ width: 10%; }
@@ -113,7 +113,7 @@ p{ text-indent:1.5em; }
      /* 侧边栏 container */
      .solider{
 	 /*border: 1px solid green;*/
-	 text-align: center;
+     text-align: center;
      }
      .detailsOfDebian, .welcomeContainer, .mainContent, .solider, .guideAndNewsContainer{
 	 -webkit-flex: auto;
