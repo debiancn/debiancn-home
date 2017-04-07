@@ -209,7 +209,14 @@ p{ text-indent:1.5em; }
 	 text-align: left;
      }
 /* 页脚 */
-footer{ text-align: center; line-height: 19px; }
+footer{
+    height: 60px;;
+    border-top: 5px solid #D24C72;
+    background-color: #fff;
+    font-size: 0.8em;
+    text-align: center;
+    padding-top: 15px;
+}
 
 /* 宽屏尺寸网页样式 */ 
 @media only screen and ( min-width: 400px ) {
