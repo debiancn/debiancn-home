@@ -42,8 +42,8 @@
                   <li class="menuListSelected"><a href="javascript:;" class="indexClick">首页</a></li>
                   <li><a href="https://forums.debiancn.org/">论坛</a></li>
                   <li><a href="http://wiki.debiancn.org/">WIKI</a></li>
-                  <li><a href="http://irc.debiancn.org/">聊天室</a></li>
-                  <li><a href="https://www.debian.org/distrib/">下载</a></li>
+                  <li><a href="https://irc.debiancn.org/">聊天室</a></li>
+                  <li><a href="https://repo.debiancn.org/">社区仓库</a></li>
                   <li><a href="javascript:;" class="contactClick">联系我们</a></li>
                   <li class="menuListLast"><a href="javascript:;" class="donateClick" >捐助我们</a></li>
                 </ul>
@@ -126,8 +126,9 @@
                   <div class="paragraphContent">
                     <ul class="linkLists">
                       <li><a href="https://www.debian.org/releases/stable/amd64/index.html.zh-cn">Debian安装指南</a></li>
-                      <li><a href="https://lists.debian.org/debian-chinese-gb/">邮件列表</a></li>
-                      <li><a href="https://irc.debiancn.org/log/debian-cn/today">聊天室</a></li>
+                      <li><a href="https://www.debian.org/distrib/">官方下载页面</a></li>
+                      <li><a href="https://lists.debian.org/debian-chinese-gb/">中文邮件列表</a></li>
+                      <li><a href="https://irc.debiancn.org/log/debian-cn/today">在线聊天室</a></li>
                       <li><a href="https://chinese.alioth.debian.org/cn/">开发参与指南</a></li>
                       <!-- <li><a href="javascript:;">待办事项</a></li>  -->
                       <!-- <li><a href="javascript:;">社区礼仪</a></li>  -->
