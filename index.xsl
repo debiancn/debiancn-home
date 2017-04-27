@@ -34,7 +34,7 @@
                 <div class="navMobiLeft">
                   <img id="logo_small" src="images/logo_small.png" alt="Debian中文社区" />
                 </div>
-                <div class="navMobiTitle">Debain中文社区</div>
+                <div class="navMobiTitle">Debian中文社区</div>
                 <div class="navMobiRight"><div class="menu_mobi"></div></div>
               </div>
               <div class="menuListDiv">
