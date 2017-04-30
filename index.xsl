@@ -85,7 +85,7 @@
                         <div class="newsLink"><a href="https://www.debian.org/News/2017/20170114">查看更多</a></div>
                       </li>
                       <xsl:for-each select="document('news-forums.debiancn.org.xml')/rss/channel/item[not(position() > 3)]">
-                        <li>
+                        <li class="cnNewsItem">
                           <div class="newsDate">
                             <xsl:value-of select="./pubDate"/>
                           </div>
