@@ -84,7 +84,7 @@
                         <div class="newsTitle">Debian 8 更新：8.7版本发布</div>
                         <div class="newsLink"><a href="https://www.debian.org/News/2017/20170114">查看更多</a></div>
                       </li>
-                      <xsl:for-each select="document('news-forums.debiancn.org.xml')/rss/channel/item[not(position() > 4)]">
+                      <xsl:for-each select="document('news-forums.debiancn.org.xml')/rss/channel/item[not(position() > 3)]">
                         <li>
                           <div class="newsDate">
                             <xsl:value-of select="./pubDate"/>
@@ -97,7 +97,7 @@
                               <xsl:attribute name="href">
                                 <xsl:value-of select="./link"/>
                               </xsl:attribute>
-                              社区新闻链接
+                              社区新闻
                             </a>
                           </div>
                         </li>
