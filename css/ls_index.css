@@ -1,7 +1,6 @@
 @charset "utf-8";
 /* 布局 页面共用样式 */
 html{ background: url('../images/bg.png'); }
-p{ text-indent:1.5em; }
 .ls_container{ width: 100%; margin: auto; }
 .logoContainer{ text-align: left; text-indent: 120px; max-width: 1200px; margin: auto; }
 .navigationContainer{ text-align: center; width: 100%; background-color: #fff;}
