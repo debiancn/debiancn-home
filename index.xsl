@@ -144,6 +144,7 @@
                   <div class="paragraphContent">
                     <ul class="linkLists">
                       <li><a href="https://www.debian.org/releases/stable/amd64/index.html.zh-cn">Debian安装指南</a></li>
+		      <li><a href="https://www.debian.org/doc/manuals/debian-reference/">Debian参考手册</a></li>
                       <li><a href="https://www.debian.org/distrib/">官方下载页面</a></li>
                       <li><a href="https://lists.debian.org/debian-chinese-gb/">中文邮件列表</a></li>
                       <li><a href="https://irc.debiancn.org/log/debian-cn/today">在线聊天室</a></li>
