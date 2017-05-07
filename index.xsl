@@ -69,21 +69,24 @@
                   <h3 class="paragraphTitle">新闻 <span class="moreMsg"><a href="https://www.debian.org/News/">浏览全部新闻</a></span></h3>
                   <div class="paragraphContent">
                     <ul class="newsContainer">
-                      <li>
-                        <div class="newsDate">2017年4月25日</div>
-                        <div class="newsTitle">Debian 将关闭公共 FTP 服务</div>
-                        <div class="newsLink"><a href="https://www.debian.org/News/2017/20170425">查看更多</a></div>
-                      </li>
-                      <li>
-                        <div class="newsDate">2017年4月17日</div>
-                        <div class="newsTitle">对 Dmitry Bogatov 被捕一事的陈述</div>
-                        <div class="newsLink"><a href="https://www.debian.org/News/2017/20170417">查看更多</a></div>
-                      </li>
-                      <li>
-                        <div class="newsDate">2017年1月14日</div>
-                        <div class="newsTitle">Debian 8 更新：8.7版本发布</div>
-                        <div class="newsLink"><a href="https://www.debian.org/News/2017/20170114">查看更多</a></div>
-                      </li>
+                      <xsl:for-each select="document('news-main.xml')/mainnews/item">
+                        <li>
+                          <div class="newsDate">
+                            <xsl:value-of select="./date"/>
+                          </div>
+                          <div class="newsTitle">
+                            <xsl:value-of select="./title"/>
+                          </div>
+                          <div class="newsLink">
+                            <a>
+                              <xsl:attribute name="href">
+                                <xsl:value-of select="./link"/>
+                              </xsl:attribute>
+                              查看更多 
+                            </a>
+                          </div>
+                        </li>
+                      </xsl:for-each>
                       <xsl:for-each select="document('news-forums.debiancn.org.xml')/rss/channel/item[not(position() > 3)]">
                         <li class="cnNewsItem">
                           <div class="newsDate">
@@ -144,7 +147,7 @@
                   <div class="paragraphContent">
                     <ul class="linkLists">
                       <li><a href="https://www.debian.org/releases/stable/amd64/index.html.zh-cn">Debian安装指南</a></li>
-		      <li><a href="https://www.debian.org/doc/manuals/debian-reference/">Debian参考手册</a></li>
+                       <li><a href="https://www.debian.org/doc/manuals/debian-reference/">Debian参考手册</a></li>
                       <li><a href="https://www.debian.org/distrib/">官方下载页面</a></li>
                       <li><a href="https://lists.debian.org/debian-chinese-gb/">中文邮件列表</a></li>
                       <li><a href="https://irc.debiancn.org/log/debian-cn/today">在线聊天室</a></li>
