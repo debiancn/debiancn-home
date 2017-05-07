@@ -66,7 +66,12 @@
             <div class="detailsOfDebian">
               <div class="mainContent">
                 <div class="col-2">
-                  <h3 class="paragraphTitle">新闻 <span class="moreMsg"><a href="https://www.debian.org/News/">浏览全部新闻</a></span></h3>
+                  <h3 class="paragraphTitle">
+                    新闻
+                    <span class="moreMsg">
+                      <a href="https://www.debian.org/News/">浏览全部新闻</a>　<a href="https://forums.debiancn.org/c/5-category.rss">社区RSS</a>
+                  </span>
+                  </h3>
                   <div class="paragraphContent">
                     <ul class="newsContainer">
                       <xsl:for-each select="document('news-main.xml')/mainnews/item">
