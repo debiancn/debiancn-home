@@ -1,44 +1,32 @@
 (function(){
-    var Fixedflag = false;
     /* 设置小屏幕设备 点击切换菜单栏 */
     $('.navMobiRight').bind( 'click', function(){
 	$( '.menuList' ).toggle();
     } );
     /* 设置导航菜单 固定在页面最上方 */
-    $('.navigationContainer').height( $('.menuListDiv').height() );
     function topFixed(){
-	if( !Fixedflag ){
-	    console.log( Fixedflag );
-	    Fixedflag = true;
-	    setTimeout( function(){
-		Fixedflag = false;
-	    }, 1000/60 );
-	    if( window.innerWidth >= 700 && window.scrollY >= 63 ){
-		$('.menuListDiv').css({
-		    'position':'fixed',
-		    'top':'0',
-		    'left':'0'
-		});
-//		$('.navigationContainer').height(0);
-	    }else if( window.innerWidth >= 700 ){
-		$('.menuListDiv').css({
-		    'position':'relative',
-		    'top':'0',
-		    'left':'0'
-		});
-//		$('.navigationContainer').height( $('.menuListDiv').height() );
-		$( '.menuList' ).show();
-	    }else if( window.innerWidth <= 700 ){
-		$('.menuListDiv').css({
-		    'position':'relative',
-		    'top':'0',
-		    'left':'0'
-		});
-//		$('.navigationContainer').height( $('.menuListDiv').height() );
-	    }
+	if( window.innerWidth >= 700 && window.scrollY >= 63 ){
+	    $('.menuListDiv').css({
+		'position':'fixed',
+		'top':'0',
+		'left':'0'
+	    });
+	}else if( window.innerWidth >= 700 ){
+	    $('.menuListDiv').css({
+		'position':'relative',
+		'top':'0',
+		'left':'0'
+	    });
+	    $( '.menuList' ).show();
+	}else if( window.innerWidth <= 700 ){
+	    $('.menuListDiv').css({
+		'position':'relative',
+		'top':'0',
+		'left':'0'
+	    });
 	}
     }
-    $( window ).on( 'load', function(){
+    $( window ).bind( 'load', function(){
 	topFixed();
     }).bind( 'scroll', function(){
 	topFixed();

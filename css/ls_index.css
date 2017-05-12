@@ -3,12 +3,7 @@
 html{ background: url('../images/bg.png'); }
 .ls_container{ width: 100%; margin: auto; }
 .logoContainer{ text-align: left; text-indent: 120px; max-width: 1200px; margin: auto; }
-.navigationContainer{
-    text-align: center;
-    width: 100%;
-    background-color: #fff;
-    transition: height 2s;
-}
+.navigationContainer{ text-align: center; width: 100%; background-color: #fff;}
  .navButton{ height: 35px; line-height: 35px; }
   .navMobi>div{ height: 60px; float: left; }
    .navMobiLeft{ width: 10%; margin: 0 2.5%; }
