@@ -126,7 +126,7 @@
                     <h3 class="paragraphTitle">安全更新 <span class="moreMsg"><a href="https://www.debian.org/security/index.en.html">浏览全部安全更新</a></span></h3>
                     <div class="paragraphContent">
                       <ul class="updateContainer">
-                          <xsl:for-each select="/rdf:RDF/purlrss:item">
+                          <xsl:for-each select="/rdf:RDF/purlrss:item[not(position() > 7)]">
                           <li>
                             <div class="updateDate">
                               <xsl:value-of select="./dc:date"/>
