@@ -163,18 +163,19 @@
                   </div>
                 </div>
                 <div class="col-1">
-                  <h3 class="paragraphTitle">赞助商</h3>
-                  <div class="paragraphContent" style="width:260px; height:180px; margin: 0 auto;">
-                    <!--<a href="https://www.ucloud.cn/"><img alt="ucloud" src="./images/ad.jpg"/></a>-->
-                    <a href="http://www.ucloud.cn/site/active/gift.html?utm_source=debianchina&amp;utm_medium=content_pic_pc&amp;utm_campaign=multicloud&amp;utm_content=gift&amp;ytag=debianchina"><img alt="ucloud" src="images/sponsor.png"/></a>
-                  </div>
-                </div>
-                <div class="col-1">
                   <h3 class="paragraphTitle">友情链接</h3>
                   <div class="paragraphContent">
                     <ul>
                       <li><a href="https://sb.sb">烧饼博客</a></li>
                     </ul>
+                  </div>
+                </div>
+
+                <div class="col-1">
+                  <h3 class="paragraphTitle">赞助商</h3>
+                  <div class="paragraphContent" style="width:260px; height:180px; margin: 0 auto;">
+                    <!--<a href="https://www.ucloud.cn/"><img alt="ucloud" src="./images/ad.jpg"/></a>-->
+                    <a href="http://www.ucloud.cn/site/active/gift.html?utm_source=debianchina&amp;utm_medium=content_pic_pc&amp;utm_campaign=multicloud&amp;utm_content=gift&amp;ytag=debianchina"><img alt="ucloud" src="images/sponsor.png"/></a>
                   </div>
                 </div>
               </div>
