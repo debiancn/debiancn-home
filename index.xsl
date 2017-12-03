@@ -167,6 +167,7 @@
                   <div class="paragraphContent">
                     <ul>
                       <li><a href="https://sb.sb">烧饼博客</a></li>
+                      <li><a href="https://parrotsec-china.org">ParrotSec 中文社区</a></li>
                     </ul>
                   </div>
                 </div>
