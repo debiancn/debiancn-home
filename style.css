@@ -1,0 +1,299 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    color: #222;
+    font-family: Georgia, "Times New Roman", 
+             "Microsoft YaHei", "微软雅黑", 
+             STXihei, "华文细黑", 
+             serif;
+}
+/*div {*/
+    /*border: solid 1px #000000;*/
+/*}*/
+a {
+    text-decoration: none;
+    color: #444;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+h1 {
+    margin: 26px 0 15px 0;
+    font-weight: normal;
+}
+
+h2 {
+    font-weight: normal;
+}
+
+#header {
+    display: flex;
+
+    width: 100%;
+    height: 140px;
+    border-bottom: 5px solid #D24C72;
+    margin-bottom: 40px;
+    justify-content: space-around;
+}
+
+#header > :first-child {
+    display: flex;
+    width: 1366px;
+}
+
+#logo {
+    margin-left: 100px;
+    padding-top: 15px;
+}
+
+.n {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    width: 70%;
+}
+
+.nav {
+    height: 10px;
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    padding-top: 3px;
+}
+
+.nav > :nth-child(2) > li {
+    float: right;
+}
+
+.nav ul li {
+    float: left;
+}
+.nav ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    text-align: left;
+    padding-left: 0;
+    padding-right: 20px;
+    line-height: 30px;
+}
+.nav ul li a:hover {
+    color: white;
+    text-shadow: 1px 1px #000;
+    text-decoration: none !important;
+}
+
+#desc {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+#desc > :first-child {
+    box-sizing: border-box;
+    width: 1366px;
+    padding: 0 100px 40px 100px;
+}
+
+#content {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    min-height: calc(100vh - 202px - 116px - 185px)
+}
+#content > :first-child {
+    display: flex;
+    width: 1366px;
+    justify-content: space-between;
+    padding: 0 100px 40px 100px;
+    box-sizing: border-box;
+}
+
+#menu-button {
+    display: none;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1000px) {
+    .nav {
+        display: none !important;
+    }
+    #header {
+        height: 50px;
+    }
+    .nav ul li {
+        float: none !important;
+        text-align: center;
+    }
+    .nav ul li:hover {
+        background-color: #fdeff3;
+    }
+    #logo {
+        padding: 0;
+        margin-left: 10px;
+        position: absolute;
+    }
+    #logo-img {
+        width: 50px;
+        height: 50px;
+    }
+    .n {
+        margin-left: 0;
+        flex-grow: 1;
+    }
+    #menu-button {
+        display: block;
+        position: absolute;
+        top: 8px;
+        right: 5px;;
+    }
+    #nav-bar {
+        display: block;
+    }
+    h1 {
+        margin: 5px;
+        margin-left: 60px;
+    }
+    #desc > :first-child {
+        margin: 0;
+        padding: 0 6px 0 6px;
+    }
+    #content {
+        height: auto !important;
+    }
+    #content > :first-child{
+        display: flex;
+        padding: 0 6px 0 6px;
+        justify-content: space-around;
+        flex-direction: column;
+        margin-left: 0 !important;
+    }
+    #content-left {
+        width: 100% !important;
+        flex-grow: 1;
+    }
+    #content-right {
+        width: 100% !important;
+        flex-grow: 1;
+    }
+    #footer {
+        padding-left: 0 !important;
+        margin-top: 40px;
+    }
+    #content h2 {
+        padding-left: 0 !important;
+    }
+    #starter {
+        padding-left: 8px;
+    }
+}
+
+#content-left {
+    width: 60%;
+}
+
+#content-right {
+    width: 30%;
+    flex-direction: column;
+    display: flex;
+}
+
+.more {
+    font-size: 0.8em;
+    float: right;
+    display: block;
+    padding-right: 5px;
+    padding-top: 8px;
+}
+
+#starter div {
+    padding: 20px 20px 0 0;
+}
+
+#content h2 {
+    border-bottom: 1px solid #a80030;
+    margin-bottom: 0;
+    padding-left: 10px;
+}
+
+table {
+    display: table;
+    width: 100%;
+    border-spacing: 0;
+}
+
+tbody > :nth-child(even) {
+    background-color: #fdeff3;
+}
+
+table tr :nth-child(1) {
+    width: 10%;
+    min-width: 100px;
+    padding-left: 20px;
+}
+
+table tr :nth-child(2) {
+    width: 60%;
+}
+
+td {
+    padding: 6px;
+    border-top: 1px solid #ddd;
+}
+
+td > a {
+    font-size: 0.9em;
+}
+
+tbody > :last-child td {
+    border-bottom: 1px solid #ddd;
+}
+
+#content-right ul {
+    list-style-type: none;
+    margin: 0;
+    padding-left: 10px;
+}
+
+#content-right ul li {
+    padding-top: 0;
+}
+#content-right ul > :nth-child(1) {
+    padding-top: 10px;
+}
+#content-right ul li::before {
+    content: "⚫";
+    color: #D24C72;
+    padding-right: 2px;
+}
+
+#footer {
+    display: flex;
+    flex-direction: column;
+}
+
+#banner {
+    display: flex;
+    width: 100%;
+    background-color: #ddd;
+    border-bottom: 5px solid #D24C72;
+    border-top: 1px solid #AAA;
+}
+#banner > :first-child {
+    display: flex;
+    width: 1366px;
+    height: 150px;
+}
+#footer :nth-child(2), #footer :nth-child(2) a {
+    font-size: 0.9em;
+}
+
+
+#footer > :last-child {
+    padding-bottom: 10px;
+}
