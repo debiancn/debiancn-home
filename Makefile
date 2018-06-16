@@ -1,14 +1,19 @@
 FORUMS_NEWS_RSS := https://forums.debiancn.org/c/5-category.rss
+SECURITY_ADVISORY := https://www.debian.org/security/dsa
 
 update: index.html
 
 index.html: index.xsl dsa.xml news-forums.debiancn.org.xml
-	xsltproc -o index.html ./index.xsl ./dsa.xml
+	xsltproc -o $@ ./index.xsl ./dsa.xml
 
 dsa.xml:
-	wget -4 -O dsa.xml -t 0 https://www.debian.org/security/dsa
+	if [ `find $@ -cmin +60 -print` ]; then \
+		wget -4 -O $@ -t 0 $(SECURITY_ADVISORY) ; \
+	fi
 
 news-forums.debiancn.org.xml:
-	wget -t 100 $(FORUMS_NEWS_RSS) -O news-forums.debiancn.org.xml
+	if [ `find $@ -cmin +60 -print` ]; then \
+		wget -O $@ -t 100 $(FORUMS_NEWS_RSS) ; \
+	fi
 
-.PHONY: dsa.xml update news-forums.debiancn.org.xml
+.PHONY: update dsa.xml news-forums.debiancn.org.xml
