@@ -16,3 +16,7 @@
 进行 XSLT 自动生成 `index.html` 文件，作为首页。
 
 未来的首页开发应当直接编辑 `index.xsl` 文件，按照 XHTML 标准书写页面即可。
+
+## License
+
+GPL-3+

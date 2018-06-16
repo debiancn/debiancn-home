@@ -215,6 +215,7 @@
             <p>© 2016-2017 - Debian 中文社区</p>
             <p>Debian 是 Software in the Public Interest, Inc. 的注册商标。</p>
             <p>服务器由 <img alt="" src="./images/u.png"/> 赞助</p>
+            <p>源代码可在 <a href="https://github.com/debiancn/debiancn-home">GitHub</a> 找到。</p>
           </footer>
         </div>
       </body>
