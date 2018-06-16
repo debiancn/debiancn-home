@@ -1,0 +1,126 @@
+@charset "utf-8";
+/* 布局 页面共用样式 */
+html {
+  background: url('../images/bg.png');
+}
+
+/* 主体部分 */
+/* tab */
+
+section {
+  display: none;
+}
+
+.newsContainer li, .updateContainer li {
+  display: flex;
+  flex-direction: row;
+  line-height: 30px;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+}
+
+@media ( max-width: 450px ) {
+  .updateContainer li {
+    display: block;
+  }
+}
+
+.newsContainer li:nth-child(2n+1), .updateContainer li:nth-child(2n+1) {
+  background: #E4E4E4;
+  border-top: 1px solid #666;
+  border-bottom: 1px solid #666;
+}
+
+.newsDate {
+  flex: 2;
+}
+
+.newsTitle {
+  flex: 6;
+}
+
+.newsLink {
+  flex: 1;
+}
+
+.updateDate {
+  flex: 4.4;
+}
+
+.updateTitle {
+  flex: 7;
+  overflow: hidden;
+  text-overflow: "...";
+  white-space: nowrap;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  height: 30px;
+}
+
+/* 侧边栏 container */
+.solider {
+  /*border: 1px solid green;*/
+  text-align: center;
+}
+
+.flex-container {
+  display: flex;
+  flex: auto;
+  flex-direction: column;
+}
+
+/* media query for all screens to select the right width */
+@media ( min-width: 800px ) {
+  .guideAndNewsContainer {
+    flex-direction: row;
+  }
+}
+
+@media ( min-width: 1200px ) {
+  .detailsOfDebian {
+    flex-direction: row;
+  }
+}
+
+@media ( max-width: 1200px ) {
+  .solider {
+    flex-direction: row;
+  }
+}
+
+@media ( max-width: 800px ) {
+  .newsContainer li {
+    display: block;
+    position: relative;
+  }
+
+  .newsLink {
+    position: absolute;
+    top: 0;
+    right: 0.2em;
+  }
+
+  .solider {
+    flex-direction: column;
+  }
+}
+
+/* #text the first content for debiancn-home page */
+
+.moreMsg {
+  float: right;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.linkLists li {
+  line-height: 30px;
+}
+
+#contact ol > li {
+  list-style-position: inside;
+}
+
+#donate p {
+  text-align: center;
+}

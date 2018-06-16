@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="1.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -7,7 +7,7 @@
                 xml:lang="zh"
                 exclude-result-prefixes="purlrss"
 >
-  <xsl:output method="html" indent="yes" encoding="UTF-8" />
+  <xsl:output method="html" indent="yes" encoding="utf-8" />
   <xsl:template match="/">
     <xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html&gt;</xsl:text>
     <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
@@ -18,39 +18,42 @@
         <meta http-equiv="X-UA-Compatible" content="chrome=1" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-        <link href="./css/ls_base.css" rel="stylesheet" />
-        <link href="./css/ls_index.css" rel="stylesheet" />
+        <link href="https://cdn.bootcss.com/normalize/8.0.0/normalize.css" rel="stylesheet" crossorigin="anonymous" />
+        <link href="./css/base.css" rel="stylesheet" />
+        <link href="./css/index.css" rel="stylesheet" />
       </head>
       <body>
         <header>
-          <div class="logoContainer mobi_hide">
+          <div class="logo-box hidden-sm-down">
             <img alt="" src="./images/logo.png" />
           </div>
-          <nav class="navigationContainer">
-            <div class="navMobi mobi_show">
-              <div class="navMobiLeft">
-                <img id="logo_small" src="images/logo_small.png" alt="Debian中文社区" />
+          <nav class="navbar">
+            <div class="navbar-header hidden-md-up">
+              <div class="navbar-header-logo-box">
+                <img src="images/logo_small.png" alt="Debian中文社区" />
               </div>
-              <div class="navMobiTitle">Debian中文社区</div>
-              <div class="navMobiRight">
-                <div class="menu_mobi"></div>
+              <div class="navbar-header-title">Debian中文社区</div>
+              <div class="navbar-header-button">
+                <div class="menu-icon"></div>
               </div>
             </div>
 
-            <div class="menuListDiv">
-              <ul class="clearfix mobi_hide nav navbar-nav navbar-tabs">
+            <div class="collapse navbar-collapse">
+              <ul class="nav navbar-nav navbar-tabs">
                 <li>
                   <a href="#index">首页</a>
                 </li>
                 <li>
-                  <a href="https://forums.debiancn.org/">论坛</a>
+                  <a href="//forums.debiancn.org/">论坛</a>
                 </li>
                 <li>
-                  <a href="https://irc.debiancn.org/">聊天室</a>
+                  <a href="//irc.debiancn.org/">聊天室</a>
                 </li>
                 <li>
-                  <a href="https://repo.debiancn.org/">社区仓库</a>
+                  <a href="//repo.debiancn.org/">社区仓库</a>
                 </li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right navbar-tabs">
                 <li>
                   <a href="#contact">联系我们</a>
                 </li>
@@ -63,45 +66,44 @@
         </header>
 
         <main>
-          <section class="tab-content" id="index">
-            <div class="welcomeContainer">
-              <div class="col-3">
-                <h3>欢迎来到 Debian 中文社区</h3>
-                <div class="row">
-                  <p>Debian 是一个自由的操作系统（OS），供您安装在计算机上使用。</p>
-                  <p>Debian 系统目前采用 Linux 内核或者 FreeBSD 内核。 Linux 是一个最初由 Linus Torvalds 创建，目前由全球成千上万的程序师共同维护的软件。 FreeBSD
-                    是一个包括内核和其它软件的操作系统。
-                  </p>
-                  <p>Debian 不只是提供一个纯粹的操作系统：它还附带了超过 51000 个软件包，这些预先编译好的软件被包裹成一种良好的格式以便于在您的机器上进行安装。</p>
-                  <p>Debian 中文社区是一个专门为 Debian 中文用户而创建的社区。希望为中文用户的学习交流提供一席之地。也希望能有更多人爱上这个自由伟大的操作系统。</p>
-                </div>
+          <section class="tab-content tab-active" id="index">
+            <div class="col-3">
+              <h3>欢迎来到 Debian 中文社区</h3>
+              <div class="row">
+                <p>Debian 是一个自由的操作系统（OS），供您安装在计算机上使用。</p>
+                <p>Debian 系统目前采用 Linux 内核或者 FreeBSD 内核。 Linux 是一个最初由 Linus Torvalds 创建，目前由全球成千上万的程序师共同维护的软件。 FreeBSD
+                  是一个包括内核和其它软件的操作系统。
+                </p>
+                <p>Debian 不只是提供一个纯粹的操作系统：它还附带了超过 51000 个软件包，这些预先编译好的软件被包裹成一种良好的格式以便于在您的机器上进行安装。</p>
+                <p>Debian 中文社区是一个专门为 Debian 中文用户而创建的社区。希望为中文用户的学习交流提供一席之地。也希望能有更多人爱上这个自由伟大的操作系统。</p>
               </div>
             </div>
-            <div class="detailsOfDebian">
-              <div class="mainContent">
+
+            <div class="detailsOfDebian flex-container">
+              <div class="mainContent flex-container">
                 <div class="col-2">
                   <h3>
                     新闻
                     <span class="moreMsg">
                       <a href="https://www.debian.org/News/">浏览全部新闻</a>&#8195;<a
-                      href="https://forums.debiancn.org/c/5-category.rss">社区RSS
+                      href="//forums.debiancn.org/c/5-category.rss">社区RSS
                     </a>
                     </span>
                   </h3>
                   <div class="row">
                     <ul class="newsContainer">
-                      <xsl:for-each select="document('news-main.xml')/mainnews/item">
+                      <xsl:for-each select="document('news.xml')/rdf:RDF/purlrss:item[not(position() > 3)]">
                         <li>
                           <div class="newsDate">
-                            <xsl:value-of select="./date" />
+                            <xsl:value-of select="./dc:date" />
                           </div>
                           <div class="newsTitle">
-                            <xsl:value-of select="./title" />
+                            <xsl:value-of select="./purlrss:title" />
                           </div>
                           <div class="newsLink">
                             <a>
                               <xsl:attribute name="href">
-                                <xsl:value-of select="./link" />
+                                <xsl:value-of select="./purlrss:link" />
                               </xsl:attribute>
                               查看更多
                             </a>
@@ -109,7 +111,7 @@
                         </li>
                       </xsl:for-each>
                       <xsl:for-each
-                        select="document('news-forums.debiancn.org.xml')/rss/channel/item[not(position() > 3)]">
+                        select="document('news-forums.xml')/rss/channel/item[not(position() > 3)]">
                         <li class="cnNewsItem">
                           <div class="newsDate">
                             <xsl:value-of select="./pubDate" />
@@ -130,18 +132,15 @@
                     </ul>
                   </div>
                 </div>
-                <div class="guideAndNewsContainer">
+
+                <div class="guideAndNewsContainer flex-container">
                   <div class="col-1">
                     <h3>入门</h3>
                     <div class="row">
                       <p>
-                        如果您是一名新人，对 Debian 产生了兴趣，想要进一步了解关于 Debian 的一切，那么
-                        <a href="http://wiki.debiancn.org/">Debian 中文 Wiki</a>
-                        是您开始 Debian 之旅很好的指引。
-                      </p>
-                      <p>
-                        如果您想学习如何使用 Debian，那么最好的方式无疑是 <a href="https://www.debian.org/distrib/">下载 Debian 镜像</a> 并亲自安装使用它。期间遇到的一切问题都可以在
-                        <a href="javascript:">Debian 中文论坛</a>求助或者讨论。
+                        如果您想学习如何使用 Debian，那么最好的方式无疑是<a href="https://www.debian.org/distrib/">下载 Debian 镜像</a>并亲自安装使用它。期间遇到的一切问题，可以参考<a
+                        href="https://www.debian.org/releases/stable/amd64/index.html.zh-cn">安装说明书</a>，或是在
+                        <a href="//forums.debiancn.org">Debian 中文论坛</a>求助或者讨论。
                       </p>
                       <p>
                         同时也欢迎参与 Debian 中文社区的建设工作，如果您对社区建设有什么意见或建议，也欢迎通过社区的<a href="#contact">联系页</a>告诉我们。
@@ -151,12 +150,12 @@
                   <div class="col-1">
                     <h3>安全更新
                       <span class="moreMsg">
-                        <a href="https://www.debian.org/security/index.en.html">浏览全部安全更新</a>
+                        <a href="https://www.debian.org/security/">浏览全部安全更新</a>
                       </span>
                     </h3>
                     <div class="row">
                       <ul class="updateContainer">
-                        <xsl:for-each select="/rdf:RDF/purlrss:item[not(position() > 7)]">
+                        <xsl:for-each select="document('dsa.xml')/rdf:RDF/purlrss:item[not(position() > 7)]">
                           <li>
                             <div class="updateDate">
                               <xsl:value-of select="./dc:date" />
@@ -176,7 +175,8 @@
                   </div>
                 </div>
               </div>
-              <div class="solider">
+
+              <div class="solider flex-container">
                 <div class="col-1">
                   <h3>相关链接</h3>
                   <div class="row">
@@ -194,7 +194,7 @@
                         <a href="https://lists.debian.org/debian-chinese-gb/">中文邮件列表</a>
                       </li>
                       <li>
-                        <a href="https://irc.debiancn.org/log/debian-cn/today">在线聊天室</a>
+                        <a href="//irc.debiancn.org/log/debian-cn/today">在线聊天室</a>
                       </li>
                       <li>
                         <a href="https://chinese.alioth.debian.org/cn/">开发参与指南</a>
@@ -240,7 +240,7 @@
                 <p>如果对 Debian 中文社区有什么意见和建议，或者想要与我们进行合作。您可以通过以下方式和我们取得联系：</p>
                 <ol>
                   <li>
-                    进入<a href="//irc.debiancn.org/">聊天室</a>立即反馈您的问题，一般都会有人解答。
+                    进入<a href="//irc.debiancn.org/">聊天室</a>即时反馈您的问题，一般都会有人解答。
                   </li>
                   <li>
                     对社区的任何看法和建议都可以在 <a href="//forums.debiancn.org">Debian 中文论坛</a>的<a
@@ -287,7 +287,7 @@
           src="https://code.jquery.com/jquery-3.3.1.min.js"
           integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
           crossorigin="anonymous"></script>
-        <script src="./js/ls_script.js"></script>
+        <script src="./js/base.js"></script>
       </body>
     </html>
   </xsl:template>
