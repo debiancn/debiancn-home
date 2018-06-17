@@ -7,7 +7,7 @@ document.getElementsByClassName('navbar-header-button')[0].addEventListener('cli
 /* 设置导航菜单 固定在页面最上方 */
 function topFixed () {
   let navbar = document.getElementsByClassName('navbar')[0]
-  let logo_box = document.getElementsByClassName('logo-box')[0]
+  let logo_box = document.getElementsByTagName('header')[0]
   if (window.innerWidth > 768) {
     if (window.scrollY > parseFloat(window.getComputedStyle(logo_box).height)) {
       let navbar_style = window.getComputedStyle(navbar)
@@ -63,9 +63,9 @@ function showTab (withFallback) {
 }
 
 
-window.addEventListener('hashchange', showTab)
-
-
 document.addEventListener('DOMContentLoaded', function (event) {
-  showTab(true)
+  if (document.getElementsByTagName('section').length) {
+    showTab(true)
+    window.addEventListener('hashchange', showTab)
+  }
 })

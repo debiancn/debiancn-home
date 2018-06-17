@@ -1,14 +1,17 @@
-@charset "utf-8";
-/* 布局 页面共用样式 */
-html {
-  background: url('../images/bg.png');
-}
-
-/* 主体部分 */
 /* tab */
+h3 {
+  padding-left: 30px;
+  line-height: 30px;
+  margin-left: 1.25em;
+  margin-right: 1.25em;
+}
 
 section {
   display: none;
+}
+
+.gray-background {
+  background-color: rgba(238, 238, 238, 0.7);
 }
 
 .newsContainer li, .updateContainer li {
@@ -57,38 +60,21 @@ section {
   height: 30px;
 }
 
-/* 侧边栏 container */
+/* side container */
 .solider {
-  /*border: 1px solid green;*/
   text-align: center;
 }
 
-.flex-container {
-  display: flex;
-  flex: auto;
-  flex-direction: column;
+.solider h3 {
+  padding: 0;
+}
+
+.solider a {
+  color: #E76489;
 }
 
 /* media query for all screens to select the right width */
-@media ( min-width: 800px ) {
-  .guideAndNewsContainer {
-    flex-direction: row;
-  }
-}
-
-@media ( min-width: 1200px ) {
-  .detailsOfDebian {
-    flex-direction: row;
-  }
-}
-
-@media ( max-width: 1200px ) {
-  .solider {
-    flex-direction: row;
-  }
-}
-
-@media ( max-width: 800px ) {
+@media ( max-width: 768px ) {
   .newsContainer li {
     display: block;
     position: relative;
@@ -98,10 +84,6 @@ section {
     position: absolute;
     top: 0;
     right: 0.2em;
-  }
-
-  .solider {
-    flex-direction: column;
   }
 }
 

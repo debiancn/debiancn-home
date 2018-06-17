@@ -1,0 +1,184 @@
+.github-corner {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+#searchForm {
+  margin-left: .5em;
+  margin-right: .5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#search {
+  border: 1px solid #ccc;
+  width: 180px;
+  height: 25px;
+  color: #ccc;
+  margin-right: .5em;
+}
+
+#search-submit {
+  border: 1px solid #ddd;
+  color: #555;
+  height: 25px;
+  vertical-align: middle;
+}
+
+
+h1 {
+  padding-left: .83em;
+  line-height: 1.3em;
+}
+
+.tab-content {
+  width: 80%;
+}
+
+.tab-content > * {
+  margin-bottom: 3.125em;
+}
+
+.file-index {
+  margin-top: 1.25em;
+  width: 65%;
+}
+
+.file-index h1 {
+  padding-left: .83em;
+  line-height: 1.3em;
+}
+
+.content-left {
+  float: right;
+  width: 30%;
+}
+.content-left ul {
+  margin-top: 10px;
+  margin-left: 20px;
+  padding-left: 0;
+  list-style-type: none;
+  font-size: 1em;
+  line-height: 1.4em;
+}
+.content-left ul li a {
+  color: #555;
+}
+
+/* search result */
+.searchResult{
+  display: none;
+  position: absolute;
+  margin: 0;
+  margin-top: 3px;
+  padding: 0;
+  background-color: #fff;
+  border-bottom: 3px solid #D24C72;
+  max-height: 10em;
+  max-width: 30em;
+  overflow-y: auto;
+  overflow-x: hidden;
+  font-size: 0.9em;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+
+}
+.searchResult li{
+  list-style: none;
+  text-indent: 0px;
+  padding: 3px 5px;
+  white-space: nowrap;
+}
+
+/* stripped list effect */
+.searchResult li:nth-child(odd) {
+  background-color: rgba(238, 238, 238, 0.7);
+}
+
+.searchResult li:nth-child(even) {
+  background-color: rgba(211, 83, 83, 0.45);
+}
+
+.searchResult li a:first-child {
+  color: #555;
+}
+
+
+hr {
+  display: none;
+}
+
+pre {
+  overflow: auto;
+  margin: 1em;
+  line-height: 2em;
+}
+
+/* ***** */
+/* Icons */
+/* ***** */
+
+pre a[href]:before,
+pre a[href$="/"]:before {
+  content: "";
+  padding: 5px 25px 0 0;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+}
+
+a[href]:before {
+  background: url(../images/icons/default.png);
+}
+
+a[href$="/"]:before {
+  background: url(../images/icons/folder.png);
+}
+
+/* Checksums */
+
+a[href$=".md5"]:before {
+  background: url(../images/icons/checksum.png);
+}
+
+/* Compression */
+
+a[href$=".bz2"]:before {
+   background: url(../images/icons/bz2.png);
+}
+
+a[href$=".gz"]:before {
+   background: url(../images/icons/gzip.png);
+}
+
+a[href$=".tar.gz"]:before {
+   background: url(../images/icons/tar.gzip.png);
+}
+
+/* Vagrant */
+
+a[href$=".box"]:before {
+   background: url(../images/icons/vagrant.png);
+}
+
+/* Debian */
+
+a[href$=".deb"]:before {
+   background: url(../images/icons/deb.png);
+}
+
+/* Crypt */
+
+a[href$=".gpg"]:before {
+   background: url(../images/icons/crypt.png);
+}
+
+/* footer disc */
+
+.disc {
+  padding: 1.25em 40% 1.25em 9%;
+  border-top: 1px solid #ddd;
+  background-color: rgba(238, 238, 238, 0.7);
+  font-size: 0.9em;
+  line-height: 1.4;
+}

@@ -3,23 +3,27 @@ DEBIAN_NEWS_RSS := https://www.debian.org/News/news
 SECURITY_ADVISORY := https://www.debian.org/security/dsa
 
 WGET := wget --header='Accept-Language: zh-CN,zh;q=0.9,en;q=0.8'
+XSLTPROC := xsltproc --stringparam static-root .
 
-update: index.html
+update: index.html repo.html
 
-index.html: index.xsl news.xml dsa.xml news-forums.xml
-	xsltproc -o $@ ./index.xsl ./dsa.xml
+index.html: templates/index.xsl index.xml rss/news.xml rss/dsa.xml rss/news-forums.xml
+	$(XSLTPROC) -o $@ $< index.xml
 
-news.xml:
+repo.html: templates/framework.xsl repo.xml
+	$(XSLTPROC) -o $@ $< repo.xml
+
+rss/news.xml:
 	if ! [ `[ -f $@ ] && find $@ -cmin -60 -print` ]; then \
 		$(WGET) -4 -O $@ -t 0 $(DEBIAN_NEWS_RSS) ; \
 	fi
 
-dsa.xml:
+rss/dsa.xml:
 	if ! [ `[ -f $@ ] && find $@ -cmin -60 -print` ]; then \
 		$(WGET) -4 -O $@ -t 0 $(SECURITY_ADVISORY) ; \
 	fi
 
-news-forums.xml:
+rss/news-forums.xml:
 	if ! [ `[ -f $@ ] && find $@ -cmin -60 -print` ]; then \
 		$(WGET) -O $@ -t 100 $(FORUMS_NEWS_RSS) ; \
 		IFS='\
@@ -29,6 +33,6 @@ news-forums.xml:
 	fi
 
 clean:
-	rm -f index.html news.xml dsa.xml news-forums.xml
+	rm -f *.html rss/*.xml
 
-.PHONY: update news.xml dsa.xml news-forums.xml clean
+.PHONY: update rss/news.xml rss/dsa.xml rss/news-forums.xml clean

@@ -1,7 +1,5 @@
 html {
-  color: #666666;
-  /*background-color:#f3f5f7;*/
-  font: "Helvetica Neue", Helvetica, STHeiTi, "Microsoft YaHei";
+  color: #666;
 }
 
 
@@ -10,12 +8,12 @@ html {
   text-align: left;
   text-indent: 9%;
   max-width: 87%;
+  height: 3.75em;
   margin: auto;
 }
 
 .navbar {
   text-align: center;
-  background-color: #fff;
   width: 100%;
   z-index: 1;
   border-bottom: 5px solid #D24C72;
@@ -23,7 +21,7 @@ html {
 }
 
 .navbar-header > div {
-  height: 60px;
+  height: 3.75em;
   float: left;
 }
 
@@ -85,6 +83,7 @@ html {
 
 .navbar-collapse {
   margin: 0 10%;
+  height: 3.125em;
   overflow: hidden;
 }
 
@@ -107,8 +106,14 @@ html {
   left: 0;
 }
 
+.navbar-top .navbar-collapse {
+  height: 2.2em;
+}
+
 .navbar-nav {
   margin: 0;
+  float: left;
+  height: 100%;
 }
 
 .navbar-nav.navbar-right {
@@ -130,24 +135,35 @@ html {
   background-color: #e4e4e4;
 }
 
-.navbar-nav li {
+.navbar-nav > * {
   float: left;
-  width: 6.25em;
-  height: 2.2em;
-  line-height: 2.2em;
+  height: 100%;
 }
 
-.navbar-nav li a {
+.navbar-nav > li {
+  width: 6.25em;
+}
+
+.navbar-nav a {
   display: block;
-  width: 100%;
-  height: 100%;
   color: #556;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-nav a:hover {
+  color: white;
+  text-shadow: 1px 1px #000000;
 }
 
 
 /* tab */
 .tab-content {
   max-width: 90%;
+  overflow: hidden;
   margin: auto;
 }
 
@@ -167,6 +183,35 @@ html {
 
 
 /* content */
+.d-flex {
+  display: flex;
+  flex: auto;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+@media ( max-width: 768px ) {
+  .flex-column-sm-down {
+    flex-direction: column;
+  }
+}
+
+@media ( min-width: 1200px ) {
+  .flex-column-xl-up {
+    flex-direction: column;
+  }
+
+  .flex-row-xl-up {
+    flex-direction: row;
+  }
+}
+
 /* split the width of 100% to 12 cols  */
 .col-1, .col-2, .col-3 {
   border-top: 1px solid #fff;
@@ -187,13 +232,16 @@ html {
   }
 }
 
+
+/* content */
 .row {
-  margin: 1em;
+  margin: 1.5em;
   line-height: 1.7em;
 }
 
 p {
-  margin: 0.5em;
+  margin-top: .5em;
+  margin-bottom: .5em;
 }
 
 ul {
@@ -215,23 +263,19 @@ a {
 }
 
 a, input, textarea {
-  tap-highlight-color: rgba(0, 0, 0, 0);
   outline: none;
 }
 
-.clearfix:after {
-  content: "";
-  display: block;
-  height: 0;
-  clear: both;
-  visibility: hidden;
+h1, h2, h3, h4, h5 {
+  margin-top: 1.25em;
+  margin-bottom: 0;
+  font-weight: 200;
+  border-bottom: 1px solid rgba(210,76,114,0.2);
+  color: #d24c72;
 }
 
-h3 {
-  margin: 20px;
-  border-bottom: 1px solid #ccc;
-  text-indent: 10px;
-  line-height: 30px;
+h1 {
+  font-size: 1.5em;
 }
 
 
@@ -246,7 +290,7 @@ footer {
 }
 
 footer p {
-  margin: 0;
+  margin: unset;
 }
 
 
