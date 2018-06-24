@@ -1,5 +1,5 @@
 /* 设置小屏幕设备 点击切换菜单栏 */
-document.getElementsByClassName('navbar-header-button')[0].addEventListener('click', function () {
+document.getElementsByClassName('header-button')[0].addEventListener('click', function () {
   document.getElementsByClassName('navbar-collapse')[0].classList.toggle('navbar-collapse-slidedown')
 })
 
@@ -8,7 +8,7 @@ document.getElementsByClassName('navbar-header-button')[0].addEventListener('cli
 function topFixed () {
   let navbar = document.getElementsByClassName('navbar')[0]
   let logo_box = document.getElementsByTagName('header')[0]
-  if (window.innerWidth > 768) {
+  if (window.innerWidth > 544) {
     if (window.scrollY > parseFloat(window.getComputedStyle(logo_box).height)) {
       let navbar_style = window.getComputedStyle(navbar)
       logo_box.style.paddingBottom =

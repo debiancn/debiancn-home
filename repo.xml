@@ -31,7 +31,7 @@
       <a href="//irc.debiancn.org/">聊天室</a>
     </li>
     <li class="active">
-      <a href="#">社区仓库</a>
+      <a href="#">软件源</a>
     </li>
     <form align="right" action="" onsubmit="return false;" id="searchForm"><!-- method="post" id="searchForm"> -->
       <input type="search" name="search" id="search" placeholder="Search" autocomplete="off" />

@@ -53,23 +53,23 @@
     </head>
 
     <body>
-      <header>
-        <div class="logo-box hidden-sm-down">
-          <img alt="" src="{$static-root}/images/logo.png" />
+      <header class="header">
+        <div class="header-icon hidden-md-up">
+          <img class="debian-logo-small" src="{$static-root}/images/debian-logo.svg" alt="Debian中文社区" />
+        </div>
+
+        <div class="header-title"><xsl:value-of select="title" /></div>
+
+        <div class="header-button hidden-sm-up">
+          <div class="menu-icon" />
         </div>
 
         <xsl:apply-templates select="header/*" />
       </header>
 
       <nav class="navbar">
-        <div class="navbar-header hidden-md-up">
-          <div class="navbar-header-logo-box">
-            <img src="{$static-root}/images/debian-logo.svg" alt="Debian中文社区" />
-          </div>
-          <div class="navbar-header-title">Debian中文社区</div>
-          <div class="navbar-header-button">
-            <div class="menu-icon"></div>
-          </div>
+        <div class="navbar-header hidden-sm-down">
+          <img class="debian-logo" src="{$static-root}/images/debian-logo.svg" alt="Debian中文社区" />
         </div>
 
         <div class="collapse navbar-collapse">

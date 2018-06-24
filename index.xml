@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <webpage>
-  <title>Debian 中文社区 - 首页</title>
+  <title>Debian 中文社区</title>
 
   <link href="./css/index.css" rel="stylesheet" />
 
@@ -15,7 +15,7 @@
       <a href="//irc.debiancn.org/">聊天室</a>
     </li>
     <li>
-      <a href="//repo.debiancn.org/">社区仓库</a>
+      <a href="//repo.debiancn.org/">软件源</a>
     </li>
     <li align="right">
       <a href="#contact">联系我们</a>

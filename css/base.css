@@ -1,53 +1,59 @@
 html {
-  color: #666;
-}
-
-
-/* navbar */
-.logo-box {
-  text-align: left;
-  text-indent: 9%;
-  max-width: 87%;
-  height: 3.75em;
-  margin: auto;
-}
-
-.navbar {
-  text-align: center;
-  width: 100%;
-  z-index: 1;
-  border-bottom: 5px solid #D24C72;
-  background-color: #fff;
-}
-
-.navbar-header > div {
-  height: 3.75em;
-  float: left;
-}
-
-.navbar-header-logo-box {
-  width: 10%;
-  margin: 0 2.5%;
-}
-
-.navbar-header-logo-box img {
-  height: 100%;
-}
-
-.navbar-header-title {
-  width: 75%;
-  line-height: 60px;
-  font-size: 2em;
-  font-weight: bold;
-  text-align: left;
   color: #555;
 }
 
-.navbar-header .navbar-header-button {
+.header, .navbar {
+  padding: 0 10%;
+}
+
+@media only screen and ( max-width: 544px ) {
+  .header {
+    padding: 0 5%;
+  }
+
+  .navbar {
+    padding: unset;
+  }
+}
+
+
+/* header */
+.header-title {
+  line-height: 60px;
+  font-size: 2em;
+  margin-left: 87px;
+  padding-left: 1.4em;
+}
+
+@media only screen and ( max-width: 768px ) {
+  .header-title {
+    margin-left: 40px;
+  }
+}
+
+@media only screen and ( max-width: 544px ) {
+  .header-title {
+    margin-left: unset;
+    padding-left: .5em;
+    font-size: 1.5em;
+    float: left;
+  }
+}
+
+.header-icon {
+  float: left;
+}
+
+.debian-logo-small {
+  zoom: 50%;
+}
+
+.header-button {
   height: 40px;
   margin-top: 10px;
   width: 10%;
   cursor: pointer;
+  float: right;
 }
 
 .menu-icon {
@@ -81,13 +87,50 @@ html {
   bottom: -200%;
 }
 
+/* navbar */
+.navbar {
+  text-align: center;
+  z-index: 1;
+  border-bottom: 5px solid #D24C72;
+  background-color: #fff;
+}
+
+.navbar-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  width: 80%;
+}
+
+.navbar-header {
+  float: left;
+  padding-right: 1.7em;
+}
+
+.navbar-header > div {
+  height: 3.75em;
+  float: left;
+}
+
+.navbar-header-logo-box {
+  width: 10%;
+  margin: 0 2.5%;
+}
+
+.debian-logo {
+  margin-top: -60px;
+}
+
+.navbar-top .debian-logo {
+  margin-bottom: -70px;
+}
+
 .navbar-collapse {
-  margin: 0 10%;
-  height: 3.125em;
   overflow: hidden;
 }
 
-@media only screen and ( max-width: 768px ) {
+@media screen and ( max-width: 544px ) {
   .navbar-collapse {
     margin: unset;
     max-height: 0;
@@ -100,34 +143,24 @@ html {
   }
 }
 
-.navbar-top {
-  position: fixed;
-  top: 0;
-  left: 0;
-}
-
-.navbar-top .navbar-collapse {
-  height: 2.2em;
-}
-
 .navbar-nav {
   margin: 0;
-  float: left;
-  height: 100%;
 }
 
-.navbar-nav.navbar-right {
-  float: right;
-}
-
-@media only screen and ( max-width: 768px ) {
-  .navbar-collapse {
-    padding: unset;
-    width: 100%;
+@media not screen and ( max-width: 544px ) {
+  .navbar-nav {
+    float: left;
   }
 
   .navbar-nav.navbar-right {
-    float: inherit;
+    float: right;
+  }
+}
+
+@media screen and ( max-width: 544px ) {
+  .navbar-collapse {
+    padding: unset;
+    width: 100%;
   }
 }
 
@@ -135,17 +168,29 @@ html {
   background-color: #e4e4e4;
 }
 
-.navbar-nav > * {
-  float: left;
-  height: 100%;
+@media not screen and ( max-width: 544px ) {
+  .navbar-nav > * {
+    float: left;
+  }
 }
 
 .navbar-nav > li {
-  width: 6.25em;
+  width: 5.5em;
+  height: 3.125em;
+}
+
+.navbar-top .navbar-nav > li {
+  height: 2.2em;
+}
+
+@media screen and ( max-width: 544px ) {
+  .navbar-nav > li {
+    height: 2.2em;
+    width: 100%;
+  }
 }
 
 .navbar-nav a {
-  display: block;
   color: #556;
   height: 100%;
   width: 100%;
@@ -162,9 +207,15 @@ html {
 
 /* tab */
 .tab-content {
-  max-width: 90%;
+  max-width: 85%;
   overflow: hidden;
   margin: auto;
+}
+
+@media only screen and ( max-width: 544px ) {
+  .tab-content {
+    max-width: 95%;
+  }
 }
 
 .tab-active {
@@ -216,7 +267,7 @@ html {
 .col-1, .col-2, .col-3 {
   border-top: 1px solid #fff;
   border-bottom: 1px solid #fff;
-  margin: 1em;
+  margin: .5em 1em;
   background-color: #fff;
   flex: 1;
 }
@@ -224,7 +275,7 @@ html {
 /* media query for all screens to select the right width */
 @media only screen and ( max-width: 768px ) {
   .col-1, .col-2, .col-3 {
-    margin: 0.5em;
+    margin: unset;
   }
 
   .col-2, .col-3 {
@@ -295,20 +346,26 @@ footer p {
 
 
 /* screen */
-.hidden-md-up {
-  display: none;
+@media screen and ( max-width: 544px ) {
+  .hidden-xs-down {
+    display: none;
+  }
 }
 
-@media only screen and ( max-width: 768px ) {
+@media not screen and ( max-width: 544px ) {
+  .hidden-sm-up {
+    display: none;
+  }
+}
+
+@media screen and ( max-width: 768px ) {
   .hidden-sm-down {
     display: none;
   }
+}
 
+@media not screen and ( max-width: 768px ) {
   .hidden-md-up {
-    display: block;
-  }
-
-  .navbar-nav li {
-    width: 100%;
+    display: none;
   }
 }
