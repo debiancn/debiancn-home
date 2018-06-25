@@ -10,6 +10,26 @@ section {
   display: none;
 }
 
+/* split the width of 100% to 12 cols  */
+.col-1, .col-2, .col-3 {
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  margin: .5em 1em;
+  background-color: #fff;
+  flex: 1;
+}
+
+/* media query for all screens to select the right width */
+@media only screen and ( max-width: 768px ) {
+  .col-1, .col-2, .col-3 {
+    margin: unset;
+  }
+
+  .col-2, .col-3 {
+    flex: 2;
+  }
+}
+
 .gray-background {
   background-color: rgba(238, 238, 238, 0.7);
 }
@@ -56,13 +76,13 @@ section {
   text-overflow: "...";
   white-space: nowrap;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
   height: 30px;
 }
 
 /* side container */
 .solider {
   text-align: center;
+  min-width: 22%;
 }
 
 .solider h3 {

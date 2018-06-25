@@ -88,11 +88,8 @@
 
       <footer>
         <p>© 2016-2018 - <a href="//www.debiancn.org">Debian 中文社区</a></p>
-        <p>Debian 是 Software in the Public Interest, Inc. 的注册商标。本站与 Debian 组织无任何关系。</p>
-        <p>服务器由<img alt="" src="{$static-root}/images/u.png" />赞助
-        </p>
-        <p>源代码可在 <a href="https://github.com/debiancn/debiancn-home">GitHub</a> 找到。
-        </p>
+        <p>Debian 是 Software in the Public Interest, Inc. 的注册商标。本站与 Debian 组织没有任何关系。</p>
+        <p>本网站源代码可以在 <a href="https://github.com/debiancn/debiancn-home">GitHub</a> 找到。</p>
       </footer>
 
       <script

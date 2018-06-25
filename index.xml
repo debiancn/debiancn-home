@@ -58,7 +58,7 @@
             </div>
           </div>
 
-          <div class="guideAndNewsContainer d-flex flex-row flex-column-sm-down">
+          <div class="guideAndNewsContainer d-flex flex-row flex-column-xs-down">
             <div class="col-1">
               <h3>入门</h3>
               <div class="row">
@@ -87,11 +87,14 @@
           </div>
         </div>
 
-        <div class="solider d-flex flex-row flex-column-sm-down flex-column-xl-up">
+        <div class="solider d-flex flex-row flex-column-xs-down flex-column-xl-up">
           <div class="col-1 gray-background">
             <h3>相关链接</h3>
             <div class="row">
               <ul class="linkLists">
+                <li>
+                  <a href="https://www.debian.org/distrib/">官方下载页面</a>
+                </li>
                 <li>
                   <a href="https://www.debian.org/releases/stable/amd64/index.html.zh-cn">Debian 安装指南</a>
                 </li>
@@ -99,19 +102,11 @@
                   <a href="https://www.debian.org/doc/manuals/debian-reference/">Debian 参考手册</a>
                 </li>
                 <li>
-                  <a href="https://www.debian.org/distrib/">官方下载页面</a>
-                </li>
-                <li>
                   <a href="https://lists.debian.org/debian-chinese-gb/">中文邮件列表</a>
-                </li>
-                <li>
-                  <a href="//irc.debiancn.org/log/debian-cn/today">在线聊天室</a>
                 </li>
                 <li>
                   <a href="https://chinese.alioth.debian.org/cn/">开发参与指南</a>
                 </li>
-                <!-- <li><a href="javascript:">待办事项</a></li>  -->
-                <!-- <li><a href="javascript:">社区礼仪</a></li>  -->
               </ul>
             </div>
           </div>
@@ -130,16 +125,16 @@
             </div>
           </div>
 
-          <div class="col-1 gray-background">
+          <!--div class="col-1 gray-background">
             <h3>赞助商</h3>
             <div class="row" style="width:260px; height:180px; margin: 0 auto;">
-              <!--<a href="https://www.ucloud.cn/"><img alt="ucloud" src="./images/ad.jpg"/></a>-->
+              <a href="https://www.ucloud.cn/"><img alt="ucloud" src="./images/ad.jpg"/></a>
               <a
                 href="http://www.ucloud.cn/site/active/gift.html?utm_source=debianchina&amp;utm_medium=content_pic_pc&amp;utm_campaign=multicloud&amp;utm_content=gift&amp;ytag=debianchina">
                 <img alt="ucloud" src="images/sponsor.png" />
               </a>
             </div>
-          </div>
+          </div-->
         </div>
       </div>
     </section>
