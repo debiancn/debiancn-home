@@ -19,7 +19,7 @@
 
   <xsl:template match="@href|@src">
     <xsl:choose>
-      <xsl:when test="starts-with(., '.')">
+      <xsl:when test="starts-with(., './')">
         <xsl:attribute name="{name()}">
           <xsl:value-of select="concat($static-root, substring(., 2))" />
         </xsl:attribute>
@@ -92,12 +92,14 @@
         <p>本网站源代码可以在 <a href="https://github.com/debiancn/debiancn-home">GitHub</a> 找到。</p>
       </footer>
 
-      <script
-        src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous" />
+      <xsl:if test="script[@jquery]">
+        <script
+          src="https://code.jquery.com/jquery-3.3.1.min.js"
+          integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+          crossorigin="anonymous" />
+      </xsl:if>
       <script src="{$static-root}/js/base.js" />
-      <xsl:apply-templates select="script" />
+      <xsl:apply-templates select="script[not(@jquery)]" />
     </body>
   </xsl:template>
 </xsl:stylesheet>

@@ -6,7 +6,7 @@
   <link href="./css/github-corner.css" rel="stylesheet" />
 
   <header>
-    <a href="https://github.com/debiancn/repo" class="github-corner" aria-label="View source on Github">
+    <a href="https://github.com/debiancn/repo" class="github-corner hidden-xs-down" aria-label="View source on Github">
       <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; border: 0; float:right"
            aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z" />
@@ -33,13 +33,10 @@
     <li class="active">
       <a href="#">软件源</a>
     </li>
-    <form align="right" action="" onsubmit="return false;" id="searchForm"><!-- method="post" id="searchForm"> -->
-      <input type="search" name="search" id="search" placeholder="Search" autocomplete="off" />
-      <input type="submit" name="" id="search-submit" value="搜索" />
-    </form>
-    <li align="right">
-      <a href="//www.debiancn.org/#contact">联系我们</a>
-    </li>
+      <form align="right" class="search-form" action="" onsubmit="return false;"><!-- method="post" id="searchForm"> -->
+        <input type="search" name="search" id="search" placeholder="Search" autocomplete="off" />
+        <input type="submit" name="" id="search-submit" value="搜索" />
+      </form>
     <li align="right">
       <a href="//www.debiancn.org/#donate">捐助我们</a>
     </li>
@@ -47,36 +44,32 @@
 
   <body>
     <div class="tab-content">
-      <div class="content-left">
-        <h1>常用链接</h1>
-        <ul>
-          <li>
-            <a href="https://github.com/debiancn/repo/blob/master/README.rst">软件仓库简介</a>
-          </li>
-          <li>
-            <a href="https://github.com/debiancn/repo/blob/master/README.rst">软件仓库使用帮助</a>
-          </li>
-          <li>
-            <a href="https://github.com/debiancn/repo/blob/master/README.rst">软件包列表</a>
-          </li>
-          <li>
-            <a href="https://github.com/debiancn/repo/blob/master/README.rst">参与社区软件包贡献</a>
-          </li>
-        </ul>
-        <h1>仓库新闻通知</h1>
-      </div>
+      <div class="d-flex flex-row flex-column-sm-down">
+        <div class="file-index">
+          <div class="row">split-here</div>
+        </div>
 
-      <div class="file-index"><html>
-<head><title>Index of /</title></head>
-<body bgcolor="white">
-<h1>Index of /</h1><hr/><pre><a href="../">../</a>
-<a href="dists/">dists/</a>                                             05-Jul-2017 09:10       -
-<a href="info/">info/</a>                                              18-Mar-2018 19:27       -
-<a href="pool/">pool/</a>                                              18-Mar-2018 19:41       -
-<a href="debiancn-keyring_0~20161212_all.deb">debiancn-keyring_0~20161212_all.deb</a>                02-Jan-2017 16:57    5606
-</pre><hr/></body>
-</html>
-split-here</div>
+        <div class="content-left">
+          <div class="row">
+            <h1>常用链接</h1>
+            <ul>
+              <li>
+                <a href="https://github.com/debiancn/repo/blob/master/README.rst">软件仓库简介</a>
+              </li>
+              <li>
+                <a href="https://github.com/debiancn/repo/blob/master/README.rst#启用社区源的命令">软件仓库使用帮助</a>
+              </li>
+              <li>
+                <a href="https://github.com/debiancn/repo/blob/master/README.rst#软件包一览">软件包列表</a>
+              </li>
+              <li>
+                <a href="https://github.com/debiancn/repo/blob/master/README.rst#向社区源提交一个软件包">参与社区软件包贡献</a>
+              </li>
+            </ul>
+            <h1>仓库新闻通知</h1>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="disc">

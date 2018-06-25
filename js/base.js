@@ -1,34 +1,35 @@
-/* 设置小屏幕设备 点击切换菜单栏 */
+const SMALL_SCREEN_WIDTH = 544
+
+
+/* header */
 document.getElementsByClassName('header-button')[0].addEventListener('click', function () {
   document.getElementsByClassName('navbar-collapse')[0].classList.toggle('navbar-collapse-slidedown')
 })
 
 
-/* 设置导航菜单 固定在页面最上方 */
-function topFixed () {
+/* navbar */
+function fixTop () {
   let navbar = document.getElementsByClassName('navbar')[0]
-  let logo_box = document.getElementsByTagName('header')[0]
-  if (window.innerWidth > 544) {
-    if (window.scrollY > parseFloat(window.getComputedStyle(logo_box).height)) {
+  let header = document.getElementsByTagName('header')[0]
+  if (window.innerWidth > SMALL_SCREEN_WIDTH) {
+    let header_height = parseFloat(window.getComputedStyle(header).height)
+    if (window.scrollY > header_height) {
       let navbar_style = window.getComputedStyle(navbar)
-      logo_box.style.paddingBottom =
+      header.style.paddingBottom =
         parseFloat(navbar_style.height) +
         parseFloat(navbar_style.borderBottomWidth) +
         'px'
       navbar.classList.add('navbar-top')
-    } else {
-      navbar.classList.remove('navbar-top')
-      logo_box.style.paddingBottom = 0
+      return
     }
-  } else {
-    navbar.classList.remove('navbar-top')
-    logo_box.style.paddingBottom = 0
   }
+  navbar.classList.remove('navbar-top')
+  header.style.paddingBottom = 0
 }
 
-document.addEventListener('DOMContentLoaded', topFixed)
-window.addEventListener('scroll', topFixed)
-window.addEventListener('resize', topFixed)
+document.addEventListener('DOMContentLoaded', fixTop)
+window.addEventListener('scroll', fixTop)
+window.addEventListener('resize', fixTop)
 
 
 /* tab */
@@ -59,9 +60,15 @@ function showTab (withFallback) {
     section_prev_tab.classList.remove('tab-active')
   }
   section_target_tab.classList.add('tab-active')
-  window.scrollTo(0, 0)
-}
 
+  if (window.innerWidth > SMALL_SCREEN_WIDTH) {
+    let header = document.getElementsByTagName('header')[0]
+    let header_height = parseFloat(window.getComputedStyle(header).height)
+    if (window.scrollY > header_height) {
+      window.scrollTo(0, header_height)
+    }
+  }
+}
 
 document.addEventListener('DOMContentLoaded', function (event) {
   if (document.getElementsByTagName('section').length) {
