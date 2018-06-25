@@ -31,7 +31,7 @@
       <a href="//irc.debiancn.org/">聊天室</a>
     </li>
     <li class="active">
-      <a href="#">软件源</a>
+      <a href="/">软件源</a>
     </li>
       <form align="right" class="search-form" action="" onsubmit="return false;"><!-- method="post" id="searchForm"> -->
         <input type="search" name="search" id="search" placeholder="Search" autocomplete="off" />
@@ -66,6 +66,25 @@
                 <a href="https://github.com/debiancn/repo/blob/master/README.rst#向社区源提交一个软件包">参与社区软件包贡献</a>
               </li>
             </ul>
+          </div>
+          <div class="row">
+            <h1>域名选择</h1>
+            <ul>
+              <li>
+                <a href="//repo.debiancn.org">repo.debiancn.org</a> 自动解析
+              </li>
+              <li>
+                <a href="//repo4.debiancn.org">repo4.debiancn.org</a> IPv4 线路
+              </li>
+              <li>
+                <a href="//repo6.debiancn.org">repo6.debiancn.org</a> IPv6 线路
+              </li>
+              <li>
+                <a href="https://github.com/debiancn/repo/issues/60">镜像站点列表</a>
+              </li>
+            </ul>
+          </div>
+          <div class="row">
             <h1>仓库新闻通知</h1>
           </div>
         </div>
