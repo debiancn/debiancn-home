@@ -31,7 +31,7 @@
       <a href="//irc.debiancn.org/">聊天室</a>
     </li>
     <li class="active">
-      <a href="/">软件源</a>
+      <a href="#">软件源</a>
     </li>
       <form align="right" class="search-form" action="" onsubmit="return false;"><!-- method="post" id="searchForm"> -->
         <input type="search" name="search" id="search" placeholder="Search" autocomplete="off" />
@@ -91,7 +91,7 @@
       </div>
     </div>
 
-    <div class="disc">
+    <section class="disc">
       Debian 中文社区软件仓库是由 Debian 中文社区维护的软件仓库主要收录了一些
       <a href="https://packages.debian.org">Debian 官方软件仓库</a>中由于种种原因并未收录的软件包。可以作为对
       Debian 官方软件仓库的一个补充，建立
@@ -102,6 +102,6 @@
       <a href="https://www.debian.org/ports/i386/">i386</a> 架构的支持，并且提供软件源码包。
       <br />
       其他信息详见 Debian 中文社区 <a href="https://github.com/debiancn/repo">GitHub 仓库</a>。
-    </div>
+    </section>
   </body>
 </webpage>

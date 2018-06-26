@@ -58,7 +58,7 @@
           <img class="debian-logo-small" src="{$static-root}/images/debian-logo.svg" alt="Debian中文社区" />
         </div>
 
-        <div class="header-title"><xsl:value-of select="title" /></div>
+        <div class="header-title"><a href="/"><xsl:value-of select="title" /></a></div>
 
         <div class="header-button hidden-sm-up">
           <div class="menu-icon" />

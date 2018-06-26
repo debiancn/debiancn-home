@@ -40,6 +40,10 @@ html {
   }
 }
 
+.header-title a {
+  color: unset;
+}
+
 .header-icon {
   float: left;
 }
@@ -318,10 +322,13 @@ table {
 
 a {
   text-decoration: none;
+}
+
+section a, footer a {
   color: rgba(210, 76, 114, 0.8);
 }
 
-a, input, textarea {
+input, textarea {
   outline: none;
 }
 

@@ -56,7 +56,6 @@ h1 {
 }
 
 .file-index a {
-  color: -webkit-link;
   text-decoration: underline;
 }
 
@@ -130,66 +129,68 @@ pre {
 /* Icons */
 /* ***** */
 
-pre a[href]:before,
-pre a[href$="/"]:before {
-  content: "";
-  padding: 5px 25px 0 0;
+
+pre a[href]:before {
+  content: "\200B";
+  text-decoration: none;
+  padding-top: 5px;
+  padding-right: 25px;
   background-repeat: no-repeat;
   background-position: left bottom;
 }
 
-a[href]:before {
-  background: url(../images/icons/default.png);
+pre a[href]:before {
+  background-image: url(../images/icons/default.png);
 }
 
-a[href$="../"]:before {
-  background: url(../images/icons/folder-parent-old.png);
+pre a[href$="/"]:before {
+  background-image: url(../images/icons/folder.png);
 }
 
-a[href$="/"]:before {
-  background: url(../images/icons/folder.png);
+pre a[href$="../"]:before {
+  background-image: url(../images/icons/folder-parent-old.png);
 }
 
 /* Checksums */
 
-a[href$=".md5"]:before {
-  background: url(../images/icons/checksum.png);
+pre a[href$=".md5"]:before {
+  background-image: url(../images/icons/checksum.png);
 }
 
 /* Compression */
 
-a[href$=".gz"]:before {
-   background: url(../images/icons/zip.png);
+pre a[href$=".gz"]:before {
+   background-image: url(../images/icons/zip.png);
 }
 
-a[href$=".xz"]:before {
-   background: url(../images/icons/zip.png);
+pre a[href$=".xz"]:before {
+   background-image: url(../images/icons/zip.png);
 }
 
 /* Vagrant */
 
-a[href$=".box"]:before {
-   background: url(../images/icons/vagrant.png);
+pre a[href$=".box"]:before {
+   background-image: url(../images/icons/vagrant.png);
 }
 
 /* Debian */
 
-a[href$=".deb"]:before {
-   background: url(../images/icons/deb.png);
+pre a[href$=".deb"]:before {
+   background-image: url(../images/icons/deb.png);
 }
 
-a[href$=".dsc"]:before {
-   background: url(../images/icons/text.png);
+pre a[href$=".dsc"]:before {
+   background-image: url(../images/icons/text.png);
 }
 
-a[href$=".json"]:before {
-   background: url(../images/icons/json.png);
+pre a[href$=".json"]:before {
+   background-image: url(../images/icons/json.png);
 }
 
 /* Crypt */
 
-a[href$=".gpg"]:before {
-   background: url(../images/icons/checksum.png);
+pre a[href$=".gpg"]:before {
+   background-image: url(../images/icons/checksum.png);
 }
 
 /* footer disc */
