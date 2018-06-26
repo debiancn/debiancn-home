@@ -3,6 +3,7 @@
   <title>Debian 中文社区</title>
 
   <link href="./css/index.css" rel="stylesheet" />
+  <script common="tab" />
 
   <navbar>
     <li>

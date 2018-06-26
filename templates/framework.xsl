@@ -92,14 +92,17 @@
         <p>本网站源代码可以在 <a href="https://github.com/debiancn/debiancn-home">GitHub</a> 找到。</p>
       </footer>
 
-      <xsl:if test="script[@jquery]">
+      <xsl:if test="script[@common='jquery']">
         <script
           src="https://code.jquery.com/jquery-3.3.1.min.js"
           integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
           crossorigin="anonymous" />
       </xsl:if>
-      <script src="{$static-root}/js/base.js" />
-      <xsl:apply-templates select="script[not(@jquery)]" />
+      <script src="{$static-root}/js/navbar.js" />
+      <xsl:if test="script[@common='tab']">
+        <script src="{$static-root}/js/tab.js" />
+      </xsl:if>
+      <xsl:apply-templates select="script[not(@common)]" />
     </body>
   </xsl:template>
 </xsl:stylesheet>
