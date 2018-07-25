@@ -33,10 +33,13 @@
     <li class="active">
       <a href="#">软件源</a>
     </li>
-      <form align="right" class="search-form" action="" onsubmit="return false;"><!-- method="post" id="searchForm"> -->
-        <input type="search" name="search" id="search" placeholder="Search" autocomplete="off" />
-        <input type="submit" name="" id="search-submit" value="搜索" />
-      </form>
+    <form align="right" class="search-form" action="" onsubmit="return false;"><!-- method="post" id="searchForm"> -->
+      <input type="search" name="search" id="search" placeholder="Search" autocomplete="off" />
+      <input type="submit" name="" id="search-submit" value="搜索" />
+    </form>
+    <li align="right" class="hidden-md-up">
+      <a href="https://github.com/debiancn/repo">GitHub 仓库</a>
+    </li>
     <li align="right">
       <a href="//www.debiancn.org/#donate">捐助我们</a>
     </li>
