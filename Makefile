@@ -8,7 +8,7 @@ WGET4 := $(WGET) -4
 XSLTPROC := xsltproc --stringparam static-root $(STATIC_ROOT)
 
 
-all: index.html repo.html
+all: index.html repo.html privacy-terms.html
 
 .PHONY: all
 
@@ -18,6 +18,9 @@ index.html: templates/index.xsl templates/framework.xsl index.xml rss/news.xml r
 
 repo.html: templates/framework.xsl repo.xml
 	$(XSLTPROC) -o $@ $< repo.xml
+
+privacy-terms.html: templates/framework.xsl privacy-terms.xml
+	$(XSLTPROC) -o $@ $< privacy-terms.xml
 
 repo-header.html repo-footer.html: repo.html
 	awk 'BEGIN {RS="split-here"; ORS=""} {print > sprintf("repo-%02d", NR)}' $<
