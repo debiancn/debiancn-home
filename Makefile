@@ -8,9 +8,8 @@ WGET4 := $(WGET) -4
 XSLTPROC := xsltproc --stringparam static-root $(STATIC_ROOT)
 
 
-all: index.html repo.html privacy-terms.html
-
 .PHONY: all
+all: index.html repo.html privacy-terms.html
 
 
 index.html: templates/index.xsl templates/framework.xsl index.xml rss/news.xml rss/dsa.xml rss/news-forums.xml
@@ -24,24 +23,23 @@ privacy-terms.html: templates/framework.xsl privacy-terms.xml
 
 repo-header.html repo-footer.html: repo.html
 	awk 'BEGIN {RS="split-here"; ORS=""} {print > sprintf("repo-%02d", NR)}' $<
-	mv repo-01 repo-header.html
-	mv repo-02 repo-footer.html
+	$(MV) repo-01 repo-header.html
+	$(MV) repo-02 repo-footer.html
 
 
 define check_outdated
 .PHONY: $(shell [ `[ -f $(1) ] && find $(1) -cmin -60 -print` ] || echo $(1))
 endef
 
-rss/news.xml:
-	$(WGET4) -O $@ $(DEBIAN_NEWS_RSS)
-
 $(call check_outdated,rss/news.xml)
-
-rss/dsa.xml:
-	$(WGET4) -O $@ $(SECURITY_ADVISORY)
+rss/news.xml:
+	$(WGET) -O $@ $(DEBIAN_NEWS_RSS)
 
 $(call check_outdated,rss/dsa.xml)
+rss/dsa.xml:
+	$(WGET) -O $@ $(SECURITY_ADVISORY)
 
+$(call check_outdated,rss/news-forums.xml)
 rss/news-forums.xml:
 	$(WGET) -O $@ $(FORUMS_NEWS_RSS)
 	IFS='\
@@ -49,10 +47,7 @@ rss/news-forums.xml:
 		sed -i "s|$$i|`date --date="$$i" "+%Y-%m-%d"`|" $@; \
 	done
 
-$(call check_outdated,rss/news-forums.xml)
 
-
+.PHONY: clean
 clean:
 	rm -f *.html rss/*.xml
-
-.PHONY: update clean

@@ -87,7 +87,7 @@
       </main>
 
       <footer>
-        <p>© 2016-2018 - <a href="//www.debiancn.org">Debian 中文社区</a></p>
+        <p>© 2016-2021 - <a href="//www.debiancn.org">Debian 中文社区</a></p>
         <p>Debian 是 Software in the Public Interest, Inc. 的注册商标。本站与 Debian 组织没有任何关系。</p>
         <p>本网站源代码可以在 <a href="https://github.com/debiancn/debiancn-home">GitHub</a> 找到。</p>
         <p><a href="//www.debiancn.org/privacy-terms.html">服务条款和隐私政策</a></p>
