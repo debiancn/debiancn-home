@@ -5,7 +5,8 @@
 >
   <xsl:output method="html" indent="yes" encoding="UTF-8" />
 
-  <xsl:param name="static-root" select="'static.debiancn.org'" />
+  <xsl:param name="domain-name" select="'debiancn.org'" />
+  <xsl:param name="static-root" select="concat('static.', $domain-name)" />
 
   <xsl:template match="*">
     <xsl:element name="{name()}">

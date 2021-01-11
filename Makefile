@@ -5,20 +5,23 @@ SECURITY_ADVISORY := https://www.debian.org/security/dsa
 STATIC_ROOT ?= .
 WGET := wget --header='Accept-Language: zh-CN,zh;q=0.9,en;q=0.8'
 WGET4 := $(WGET) -4
-XSLTPROC := xsltproc --stringparam static-root $(STATIC_ROOT)
+XSLTPROC := xsltproc
+ifneq ($(STATIC_ROOT),)
+	XSLTPROC += --stringparam static-root $(STATIC_ROOT)
+endif
 
 
 .PHONY: all
 all: index.html repo.html privacy-terms.html
 
 
-index.html: templates/index.xsl templates/framework.xsl index.xml rss/news.xml rss/dsa.xml rss/news-forums.xml
+index.html: templates/index.xsl Makefile templates/framework.xsl index.xml rss/news.xml rss/dsa.xml rss/news-forums.xml
 	$(XSLTPROC) -o $@ $< index.xml
 
-repo.html: templates/framework.xsl repo.xml
+repo.html: templates/framework.xsl Makefile repo.xml
 	$(XSLTPROC) -o $@ $< repo.xml
 
-privacy-terms.html: templates/framework.xsl privacy-terms.xml
+privacy-terms.html: templates/framework.xsl Makefile privacy-terms.xml
 	$(XSLTPROC) -o $@ $< privacy-terms.xml
 
 repo-header.html repo-footer.html: repo.html
