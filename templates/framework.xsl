@@ -47,7 +47,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
       <link
-        href="https://cdn.bootcss.com/normalize/8.0.0/normalize.css"
+        href="https://cdn.bootcdn.net/ajax/libs/normalize/8.0.1/normalize.min.css"
         rel="stylesheet" crossorigin="anonymous" />
       <link href="{$static-root}/css/base.css" rel="stylesheet" />
       <xsl:apply-templates select="link" />
@@ -96,8 +96,7 @@
 
       <xsl:if test="script[@common='jquery']">
         <script
-          src="https://code.jquery.com/jquery-3.3.1.min.js"
-          integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+          src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"
           crossorigin="anonymous" />
       </xsl:if>
       <script src="{$static-root}/js/navbar.js" />
