@@ -8,12 +8,11 @@
 
 ## 自动更新实现流程
 
-"repo" 这个服务器上的 docker 实例在启动时会自动运行脚本，每小时触发更新行为。
+通过 `debiancn/debiancn.org` 仓库的 GitHub Action 实现自动更新。
 
-具体脚本请见 GitHub debiancn/custodian 项目。
+通过定时计划每天 UTC 23:00 自动更新。
 
-每小时会自动从 GitHub 项目中 `git pull` 得到 master 分支代码，并运行 `make update`
-进行 XSLT 自动生成 `index.html` 文件，作为首页。
+触发时拉取本仓库代码，并运行 `make` 命令，进行 XSLT 自动生成 `index.html` 文件，并将 `index.html` 和 `privacy-terms.html` 文件更新到 `debiancn/debiancn.org` 仓库，从而实现主页更新。
 
 未来的首页开发应当直接编辑 `index.xsl` 文件，按照 XHTML 标准书写页面即可。
 
