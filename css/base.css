@@ -751,7 +751,22 @@ code {
 
   .nav-list .active > a,
   .nav-list a[aria-current="page"] {
-    border-left: 3px solid var(--primary);
+    border-left: 0;
+  }
+
+  /* 与桌面端的底部指示条保持一致，移动端改为左侧竖条，
+     用独立伪元素绘制，避免 border-left 跟随圆角产生尖角。 */
+  .nav-list .active > a::before,
+  .nav-list a[aria-current="page"]::before {
+    content: "";
+    position: absolute;
+    left: 0.35rem;
+    top: 50%;
+    width: 3px;
+    height: 1.15em;
+    border-radius: 2px;
+    background: var(--primary);
+    transform: translateY(-50%);
   }
 
   .nav-list .active > a::after,
