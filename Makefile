@@ -2,12 +2,12 @@ FORUMS_NEWS_RSS := https://forums.debiancn.org/c/5-category.rss
 DEBIAN_NEWS_RSS := https://www.debian.org/News/news
 SECURITY_ADVISORY := https://www.debian.org/security/dsa
 
-STATIC_ROOT ?= .
+STATIC_ROOT := $(if $(STATIC_ROOT),$(STATIC_ROOT),.)
 WGET := wget --header='Accept-Language: zh-CN,zh;q=0.9,en;q=0.8'
 WGET4 := $(WGET) -4
 XSLTPROC := xsltproc
 ifneq ($(STATIC_ROOT),)
-	XSLTPROC += --stringparam static-root $(STATIC_ROOT)
+	override XSLTPROC += --stringparam static-root $(STATIC_ROOT)
 endif
 
 

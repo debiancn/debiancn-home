@@ -1,43 +1,55 @@
-function showTab (withFallback) {
-  let section_target_tab = document.getElementById(
-    window.location.hash.substr(1))
-  if (!section_target_tab) {
-    if (withFallback === true) {
-      section_target_tab = document.getElementById('index')
-    } else {
-      return
+(function () {
+  'use strict';
+
+  var nav = document.querySelector('nav.site-nav');
+  if (!nav) {
+    return;
+  }
+
+  function showTab(withFallback) {
+    var id = window.location.hash.slice(1);
+    var target = document.getElementById(id);
+
+    if (!target || !target.classList.contains('tab-content')) {
+      if (withFallback === true) {
+        target = document.getElementById('index');
+      } else {
+        return;
+      }
     }
-  }
 
-  let nav = document.getElementsByTagName('nav')[0]
-  let li_active = nav.getElementsByClassName('active')[0]
-  if (li_active) {
-    li_active.classList.remove('active')
-  }
-  let a_tab = nav.querySelector(
-    '.navbar-tabs > li > a[href="#' + section_target_tab.id + '"]')
-  if (a_tab) {
-    a_tab.parentElement.classList.add('active')
-  }
-
-  let section_prev_tab = document.getElementsByClassName('tab-active')[0]
-  if (section_prev_tab) {
-    section_prev_tab.classList.remove('tab-active')
-  }
-  section_target_tab.classList.add('tab-active')
-
-  if (window.innerWidth > SMALL_SCREEN_WIDTH) {
-    let header = document.getElementsByTagName('header')[0]
-    let header_height = parseFloat(window.getComputedStyle(header).height)
-    if (window.scrollY > header_height) {
-      window.scrollTo(0, header_height + 1)
+    var previousLink = nav.querySelector('a[aria-current="page"]');
+    if (previousLink) {
+      previousLink.removeAttribute('aria-current');
     }
-  }
-}
 
-document.addEventListener('DOMContentLoaded', function (event) {
-  if (document.getElementsByTagName('section').length) {
-    showTab(true)
-    window.addEventListener('hashchange', showTab)
+    var previousItem = nav.querySelector('.nav-list .active');
+    if (previousItem) {
+      previousItem.classList.remove('active');
+    }
+
+    var link = nav.querySelector('.nav-list a[href="#' + target.id + '"]');
+    if (link) {
+      link.setAttribute('aria-current', 'page');
+      var item = link.parentElement;
+      if (item && item.tagName === 'LI') {
+        item.classList.add('active');
+      }
+    }
+
+    var previousSection = document.querySelector('.tab-content.tab-active');
+    if (previousSection) {
+      previousSection.classList.remove('tab-active');
+    }
+    target.classList.add('tab-active');
   }
-})
+
+  document.addEventListener('DOMContentLoaded', function () {
+    if (document.querySelector('.tab-content')) {
+      showTab(true);
+      window.addEventListener('hashchange', function () {
+        showTab();
+      });
+    }
+  });
+})();

@@ -1,20 +1,71 @@
-# debian社区首页 网页
+# Debian 中文社区首页
 
-1. 一个网页，两个简单页面归并到首页，点击菜单进行切换 
-2. 预计划自动更新debain新闻（待完成）和安全通知（已完成，由服务器上 "repo" 这个 docker 实例提供支持）
-3. 不需要放在网站上的页面会归并到 *_temp* 文件夹中
-4. `<a href="#">...</a>` 会导致页面刷新，显示效果为跳转到页面顶部，现在以 `<a href="javascript:;">...</a>` 来代替,可以显示链接效果，但是不会跳转, 并且设置样式为充满整个块级元素
-5. 响应式布局，兼容大多数浏览设备分辨率，如果发现排版错误请通知我
+Debian 中文社区（<https://www.debiancn.org/>）的首页源码。页面通过 XSLT 将 XML 内容渲染为静态 HTML，新闻与安全更新由 RSS 自动生成。
 
-## 自动更新实现流程
+## 特性
 
-通过 `debiancn/debiancn.org` 仓库的 GitHub Action 实现自动更新。
+- **现代化视觉**：卡片式布局、流体排版（`clamp()`）、CSS Grid、柔和阴影与品牌色阶。
+- **响应式**：移动端折叠菜单、流式布局、安全区适配（`env(safe-area-inset-*)`）。
+- **日夜模式**：跟随系统 `prefers-color-scheme`，并提供手动切换按钮；选择保存在 `localStorage`。
+- **现代浏览器能力**：CSS 自定义属性、`color-scheme`、`backdrop-filter`、`:focus-visible`、`prefers-reduced-motion`、`prefers-contrast`、`<time>` 语义化日期。
+- **可访问性**：跳转链接、ARIA 状态、键盘可达、足够的颜色对比度。
+- **无外部依赖**：不依赖 CDN 或第三方 CSS/JS，可完全离线构建。
 
-通过定时计划每天 UTC 23:00 自动更新。
+## 目录结构
 
-触发时拉取本仓库代码，并运行 `make` 命令，进行 XSLT 自动生成 `index.html` 文件，并将 `index.html` 和 `privacy-terms.html` 文件更新到 `debiancn/debiancn.org` 仓库，从而实现主页更新。
+```
+.
+├── index.xml            # 首页内容
+├── repo.xml             # 软件源页面内容
+├── privacy-terms.xml    # 隐私政策与服务条款
+├── templates/
+│   ├── framework.xsl    # 页面框架（head / 页头 / 导航 / 页脚）
+│   └── index.xsl        # 首页 RSS 渲染
+├── css/
+│   ├── base.css         # 设计令牌、重置、布局、页头、导航、页脚、主题
+│   ├── index.css        # 首页样式
+│   ├── repo.css         # 软件源页样式
+│   └── github-corner.css
+├── js/
+│   ├── theme.js         # 日夜模式切换
+│   ├── navbar.js        # 移动端菜单
+│   └── tab.js           # 首页标签页
+├── images/              # Logo、图标与 favicon
+└── rss/                 # 构建时自动下载的 RSS 源（不纳入版本库）
+```
 
-未来的首页开发应当直接编辑 `index.xsl` 文件，按照 XHTML 标准书写页面即可。
+## 构建
+
+需要 `xsltproc`、`wget` 与 GNU `make`：
+
+```sh
+make
+```
+
+生成的 `index.html`、`repo.html`、`privacy-terms.html` 默认使用相对路径（`STATIC_ROOT=.`）。若需部署到静态子目录，可指定 `STATIC_ROOT`：
+
+```sh
+make STATIC_ROOT=static.debiancn.org
+```
+
+本地预览：
+
+```sh
+python3 -m http.server 8000
+# 打开 http://127.0.0.1:8000/index.html
+```
+
+## 自动更新
+
+通过 `debiancn/debiancn.org` 仓库的 GitHub Action 实现自动更新：每天 UTC 23:00 拉取本仓库代码并运行 `make`，把生成的 `index.html` 与 `privacy-terms.html` 推送至网站仓库。
+
+-  Debian 新闻：<https://www.debian.org/News/news>
+- 安全公告：<https://www.debian.org/security/dsa>
+- 社区论坛新闻：<https://forums.debiancn.org/c/5-category.rss>
+
+## 主题
+
+页面默认跟随操作系统的深浅色设置。点击页头右侧的太阳/月亮按钮可手动切换，选择会写入 `localStorage`（键名 `debiancn-theme`），下次访问时生效。
 
 ## License
 

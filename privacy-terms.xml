@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <webpage>
   <title>Debian 中文社区</title>
+  <description>Debian 中文社区的服务条款和隐私政策。</description>
+  <og-url>https://www.debiancn.org/privacy-terms.html</og-url>
 
   <navbar>
     <li>

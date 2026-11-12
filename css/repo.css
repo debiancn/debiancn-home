@@ -1,8 +1,7 @@
-.github-corner {
-  position: absolute;
-  right: 0;
-  top: 0;
-}
+/* ==========================================================================
+   Debian 中文软件仓库 — repo.css
+   仓库页面：搜索框 / 文件索引 / 侧栏 / 说明
+   ========================================================================== */
 
 .search-form {
   margin: 0 .5em;
@@ -22,7 +21,12 @@
 }
 
 #search {
-  border: 1px solid #ccc;
+  width: 12em;
+  padding: .25rem .5rem;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text);
 }
 
 @media screen and ( max-width: 1200px ) {
@@ -32,9 +36,17 @@
 }
 
 #search-submit {
-  border: 1px solid #ddd;
+  padding: .25rem .8rem;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  color: var(--text);
 }
 
+#search-submit:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
 
 h1 {
   font-size: 1.5em;
@@ -71,47 +83,54 @@ h1 {
   font-size: 1em;
   line-height: 1.4em;
 }
+
 .content-left ul li a {
-  color: #555;
+  color: var(--text-muted);
 }
 
-/* search result */
-.searchResult{
+.content-left ul li a:hover {
+  color: var(--primary);
+}
+
+/* 搜索结果 */
+.searchResult {
   display: none;
   position: absolute;
   margin: 0;
   margin-top: 3px;
   padding: 0;
-  background-color: #fff;
-  border-bottom: 3px solid #D24C72;
+  background-color: var(--surface);
+  border-bottom: 3px solid var(--primary);
   max-height: 10em;
   max-width: 30em;
   overflow-y: auto;
   overflow-x: hidden;
   font-size: 0.9em;
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-
+  box-shadow: var(--shadow-md);
 }
-.searchResult li{
+
+.searchResult li {
   list-style: none;
-  text-indent: 0px;
+  text-indent: 0;
   padding: 3px 5px;
   white-space: nowrap;
 }
 
-/* stripped list effect */
 .searchResult li:nth-child(odd) {
-  background-color: rgba(238, 238, 238, 0.7);
+  background-color: var(--surface-2);
 }
 
 .searchResult li:nth-child(even) {
-  background-color: rgba(211, 83, 83, 0.45);
+  background-color: var(--accent-soft);
 }
 
 .searchResult li a:first-child {
-  color: #555;
+  color: var(--text-muted);
 }
 
+.searchResult li a:first-child:hover {
+  color: var(--primary);
+}
 
 hr {
   display: none;
@@ -121,14 +140,13 @@ pre {
   overflow: auto;
   margin: 1em;
   line-height: 2em;
-  font-family: monospace;
-  color: black;
+  font-family: var(--font-mono);
+  color: var(--text);
 }
 
 /* ***** */
 /* Icons */
 /* ***** */
-
 
 pre a[href]:before {
   content: "\200B";
@@ -160,45 +178,46 @@ pre a[href$=".md5"]:before {
 /* Compression */
 
 pre a[href$=".gz"]:before {
-   background-image: url(../images/icons/zip.png);
+  background-image: url(../images/icons/zip.png);
 }
 
 pre a[href$=".xz"]:before {
-   background-image: url(../images/icons/zip.png);
+  background-image: url(../images/icons/zip.png);
 }
 
 /* Vagrant */
 
 pre a[href$=".box"]:before {
-   background-image: url(../images/icons/vagrant.png);
+  background-image: url(../images/icons/vagrant.png);
 }
 
 /* Debian */
 
 pre a[href$=".deb"]:before {
-   background-image: url(../images/icons/deb.png);
+  background-image: url(../images/icons/deb.png);
 }
 
 pre a[href$=".dsc"]:before {
-   background-image: url(../images/icons/text.png);
+  background-image: url(../images/icons/text.png);
 }
 
 pre a[href$=".json"]:before {
-   background-image: url(../images/icons/json.png);
+  background-image: url(../images/icons/json.png);
 }
 
 /* Crypt */
 
 pre a[href$=".gpg"]:before {
-   background-image: url(../images/icons/checksum.png);
+  background-image: url(../images/icons/checksum.png);
 }
 
 /* footer disc */
 
 .disc {
   padding: 1.25em 40% 1.25em 9%;
-  border-top: 1px solid #ddd;
-  background-color: rgba(238, 238, 238, 0.7);
+  border-top: 1px solid var(--border);
+  background-color: var(--surface-2);
+  color: var(--text-muted);
   font-size: 0.9em;
   line-height: 1.4;
 }

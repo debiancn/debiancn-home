@@ -1,271 +1,286 @@
-html {
-  color: #555;
+/* ==========================================================================
+   Debian 中文社区 — base.css
+   设计令牌 / 重置 / 布局 / 页头 / 导航 / 页脚 / 主题（浅色 + 深色）
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. 设计令牌
+   -------------------------------------------------------------------------- */
+:root {
+  color-scheme: light;
+
+  /* Debian Logo 系列色（保持品牌红与玫瑰色阶） */
+  --brand-700: #7a0024;
+  --brand-600: #a80030; /* Debian Logo 红 */
+  --brand-500: #c2254b;
+  --brand-400: #d24c72;
+  --brand-300: #e76489;
+  --brand-200: #f19ab6;
+  --brand-100: #fad5e1;
+  --brand-50:  #fdf2f6;
+
+  /* 语义色 — 浅色 */
+  --bg: #ffffff;
+  --bg-subtle: #f6f7f9;
+  --surface: #ffffff;
+  --surface-2: #f1f3f5;
+  --text: #1f2328;
+  --text-muted: #5a6472;
+  --text-inverse: #ffffff;
+  --border: #e4e7eb;
+  --border-strong: #cbd2d9;
+
+  --primary: var(--brand-600);
+  --primary-hover: var(--brand-700);
+  --primary-contrast: #ffffff;
+  --link: var(--brand-600);
+  --link-hover: var(--brand-700);
+
+  --accent-soft: var(--brand-50);
+  --accent-border: var(--brand-100);
+  --ring: rgba(168, 0, 48, 0.35);
+
+  --shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.06), 0 1px 3px rgba(16, 24, 40, 0.10);
+  --shadow-md: 0 4px 12px rgba(16, 24, 40, 0.08), 0 2px 4px rgba(16, 24, 40, 0.06);
+  --shadow-lg: 0 12px 32px rgba(16, 24, 40, 0.12);
+
+  --header-bg: rgba(255, 255, 255, 0.82);
+  --footer-bg: #f6f7f9;
+
+  /* 字体 */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans SC", "Source Han Sans SC",
+    "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+    "Liberation Mono", monospace;
+
+  /* 尺寸 */
+  --container: 1200px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+  --header-height: 64px;
+  --nav-height: 52px;
+
+  /* 动效 */
+  --transition-fast: 150ms ease;
+  --transition-base: 220ms ease;
 }
 
-.header, .navbar {
-  padding: 0 8%;
+/* 由主题切换脚本设置 */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg: #0f1115;
+  --bg-subtle: #16191f;
+  --surface: #1a1e25;
+  --surface-2: #22262e;
+  --text: #e6e9ee;
+  --text-muted: #a3acb8;
+  --text-inverse: #16060c;
+  --border: #2a2f37;
+  --border-strong: #3a404a;
+
+  --primary: var(--brand-300);
+  --primary-hover: var(--brand-200);
+  --primary-contrast: #16060c;
+  --link: var(--brand-300);
+  --link-hover: var(--brand-200);
+
+  --accent-soft: rgba(231, 100, 137, 0.12);
+  --accent-border: rgba(231, 100, 137, 0.28);
+  --ring: rgba(231, 100, 137, 0.45);
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.45);
+
+  --header-bg: rgba(15, 17, 21, 0.82);
+  --footer-bg: #12151a;
 }
 
-@media only screen and ( max-width: 544px ) {
-  .header {
-    padding: 0 5%;
-  }
+/* 无 JS 时回退到系统偏好 */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
 
-  .navbar {
-    padding: unset;
-  }
-}
+    --bg: #0f1115;
+    --bg-subtle: #16191f;
+    --surface: #1a1e25;
+    --surface-2: #22262e;
+    --text: #e6e9ee;
+    --text-muted: #a3acb8;
+    --text-inverse: #16060c;
+    --border: #2a2f37;
+    --border-strong: #3a404a;
 
+    --primary: var(--brand-300);
+    --primary-hover: var(--brand-200);
+    --primary-contrast: #16060c;
+    --link: var(--brand-300);
+    --link-hover: var(--brand-200);
 
-/* header */
-.header-title {
-  line-height: 60px;
-  font-size: 2em;
-  margin-left: 87px;
-  padding-left: 1.4em;
-}
+    --accent-soft: rgba(231, 100, 137, 0.12);
+    --accent-border: rgba(231, 100, 137, 0.28);
+    --ring: rgba(231, 100, 137, 0.45);
 
-@media only screen and ( max-width: 768px ) {
-  .header-title {
-    margin-left: 40px;
-  }
-}
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.35);
+    --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.45);
 
-@media only screen and ( max-width: 544px ) {
-  .header-title {
-    margin-left: unset;
-    padding-left: .5em;
-    font-size: 1.3em;
-    float: left;
-  }
-}
-
-.header-title a {
-  color: unset;
-}
-
-.header-icon {
-  float: left;
-}
-
-.debian-logo-small {
-  zoom: 50%;
-}
-
-.header-button {
-  height: 40px;
-  margin-top: 10px;
-  width: 10%;
-  cursor: pointer;
-  float: right;
-}
-
-.menu-icon {
-  width: 50%;
-  height: 10%;
-  position: relative;
-  top: 50%;
-  margin-top: -5%;
-  left: 50%;
-  margin-left: -25%;
-  background: #D24C72;
-  border-radius: 30px;
-}
-
-.menu-icon::before, .menu-icon::after {
-  content: "";
-  display: block;
-  width: 100%;
-  height: 100%;
-  background: #D24C72;
-  position: absolute;
-  left: 0;
-  border-radius: 30px;
-}
-
-.menu-icon::before {
-  top: -200%;
-}
-
-.menu-icon::after {
-  bottom: -200%;
-}
-
-/* navbar */
-.navbar {
-  text-align: center;
-  z-index: 1;
-  border-bottom: 5px solid #D24C72;
-  background-color: #fff;
-}
-
-.navbar-top {
-  position: fixed;
-  top: 0;
-  left: 0;
-  overflow: hidden;
-  width: 84%;
-}
-
-.navbar-header {
-  float: left;
-  padding-right: 1.7em;
-}
-
-.navbar-header > div {
-  height: 3.75em;
-  float: left;
-}
-
-.navbar-header-logo-box {
-  width: 10%;
-  margin: 0 2.5%;
-}
-
-.debian-logo {
-  margin-top: -60px;
-}
-
-.navbar-top .debian-logo {
-  margin-bottom: -70px;
-}
-
-.navbar-collapse {
-  overflow: hidden;
-}
-
-@media screen and ( max-width: 544px ) {
-  .navbar-collapse {
-    max-height: 0;
-    transition: max-height .5s ease-out;
-  }
-
-  .navbar-collapse-slidedown {
-    max-height: 13.2em;
-    transition: max-height .5s ease-in;
+    --header-bg: rgba(15, 17, 21, 0.82);
+    --footer-bg: #12151a;
   }
 }
 
-.navbar-nav {
+/* --------------------------------------------------------------------------
+   2. 重置
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
   margin: 0;
-  height: 3.125em;
 }
 
-.navbar-top .navbar-nav {
-  height: 2.2em;
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-height) + var(--nav-height) + 16px);
 }
 
-@media not screen and ( max-width: 544px ) {
-  .navbar-nav {
-    float: left;
-  }
-
-  .navbar-nav.navbar-right {
-    float: right;
-  }
-}
-
-@media screen and ( max-width: 544px ) {
-  .navbar-nav {
-    height: unset;
-  }
-
-  .navbar-collapse {
-    width: 100%;
-  }
-}
-
-.active, .navbar-nav li:hover {
-  background-color: #e4e4e4;
-}
-
-@media screen and ( max-width: 544px ) {
-  .navbar-nav > * {
-    height: 2.2em;
-  }
-}
-
-@media not screen and ( max-width: 544px ) {
-  .navbar-nav > * {
-    float: left;
-    height: 100%;
-  }
-}
-
-.navbar-nav > li {
-  width: 5.5em;
-}
-
-@media screen and ( max-width: 768px ) {
-  .navbar-nav > li {
-    width: 4.7em;
-  }
-}
-
-@media screen and ( max-width: 544px ) {
-  .navbar-nav > li {
-    width: 100%;
-  }
-}
-
-.navbar-nav a {
-  color: #556;
-  height: 100%;
-  width: 100%;
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--text);
+  background-color: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-wrap: break-word;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.navbar-nav a:hover {
-  color: white;
-  text-shadow: 1px 1px #000000;
-}
-
-
-/* tab */
-.tab-content {
-  max-width: 85%;
-  overflow: hidden;
-  margin: auto;
-}
-
-@media only screen and ( max-width: 544px ) {
-  .tab-content {
-    max-width: 95%;
-  }
-}
-
-.tab-active {
+img,
+svg,
+video {
   display: block;
-  animation: fadein .4s;
+  max-width: 100%;
+  height: auto;
 }
 
-@keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
 }
 
+button {
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
 
-/* content */
+ul,
+ol {
+  padding-left: 1.5em;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+  text-underline-offset: 0.18em;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
+::selection {
+  background: var(--brand-100);
+  color: var(--brand-700);
+}
+
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* --------------------------------------------------------------------------
+   3. 基础布局
+   -------------------------------------------------------------------------- */
+main {
+  flex: 1 0 auto;
+}
+
+.container {
+  width: min(var(--container), 100% - 2.5rem);
+  margin-inline: auto;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: -4rem;
+  left: 1rem;
+  z-index: 200;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  background: var(--primary);
+  color: var(--primary-contrast);
+  font-weight: 600;
+  transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+  top: 1rem;
+  color: var(--primary-contrast);
+}
+
+/* 向后兼容旧页面使用的工具类 */
 .d-flex {
   display: flex;
-  flex: auto;
-}
-
-.flex-column {
-  flex-direction: column;
 }
 
 .flex-row {
   flex-direction: row;
 }
 
-@media screen and ( max-width: 544px ) {
+.flex-column {
+  flex-direction: column;
+}
+
+.row {
+  margin: 1.5em;
+  line-height: 1.7em;
+}
+
+@media (max-width: 544px) {
   .flex-column-xs-down {
     flex-direction: column;
   }
@@ -275,7 +290,7 @@ html {
   }
 }
 
-@media screen and ( max-width: 768px ) {
+@media (max-width: 768px) {
   .flex-column-sm-down {
     flex-direction: column;
   }
@@ -285,7 +300,7 @@ html {
   }
 }
 
-@media not screen and ( max-width: 1200px ) {
+@media (min-width: 1201px) {
   .flex-column-xl-up {
     flex-direction: column;
   }
@@ -295,104 +310,489 @@ html {
   }
 }
 
-
-/* content */
-.row {
-  margin: 1.5em;
-  line-height: 1.7em;
-}
-
-p {
-  margin-top: .5em;
-  margin-bottom: .5em;
-}
-
-ul {
-  padding: 0;
-}
-
-ul li {
-  list-style: none;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-a {
-  text-decoration: none;
-}
-
-section a, footer a {
-  color: rgba(210, 76, 114, 0.8);
-}
-
-input, textarea {
-  outline: none;
-}
-
-h1, h2, h3, h4, h5 {
-  margin-top: 1.25em;
-  margin-bottom: 0;
-  font-weight: 200;
-  border-bottom: 1px solid rgba(210,76,114,0.2);
-  color: #d24c72;
-}
-
-.text-center {
-  text-align: center;
-}
-
-
-/* footer */
-footer {
-  border-top: 5px solid #D24C72;
-  background-color: #fff;
-  font-size: 0.8em;
-  text-align: center;
-  padding: 1em 0;
-  line-height: 1.2em;
-}
-
-footer p {
-  margin: unset;
-}
-
-
-/* screen */
-@media screen and ( max-width: 544px ) {
+@media (max-width: 544px) {
   .hidden-xs-down {
     display: none !important;
   }
 }
 
-@media not screen and ( max-width: 544px ) {
+@media (min-width: 545px) {
   .hidden-sm-up {
     display: none !important;
   }
 }
 
-@media screen and ( max-width: 768px ) {
+@media (max-width: 768px) {
   .hidden-sm-down {
     display: none !important;
   }
 }
 
-@media not screen and ( max-width: 768px ) {
+@media (min-width: 769px) {
   .hidden-md-up {
     display: none !important;
   }
 }
 
-@media screen and ( max-width: 1200px ) {
+@media (max-width: 1200px) {
   .hidden-md-down {
     display: none !important;
   }
 }
 
-@media not screen and ( max-width: 1200px ) {
+@media (min-width: 1201px) {
   .hidden-lg-up {
     display: none !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. 页头
+   -------------------------------------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--header-bg);
+  -webkit-backdrop-filter: saturate(180%) blur(12px);
+  backdrop-filter: saturate(180%) blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.header-inner {
+  width: min(var(--container), 100% - 2.5rem);
+  margin-inline: auto;
+  min-height: var(--header-height);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-block: 0.5rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--text);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  min-width: 0;
+}
+
+.brand:hover {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.brand-logo {
+  width: 34px;
+  flex-shrink: 0;
+}
+
+.brand-name {
+  overflow-wrap: anywhere;
+}
+
+.header-actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  color: var(--text-muted);
+  transition: background var(--transition-fast), color var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.icon-button:hover {
+  background: var(--surface-2);
+  color: var(--text);
+}
+
+.icon-button svg {
+  width: 20px;
+  height: 20px;
+}
+
+.theme-toggle .icon-sun {
+  display: none;
+}
+
+.theme-toggle .icon-moon {
+  display: block;
+}
+
+:root[data-theme="dark"] .theme-toggle .icon-sun {
+  display: block;
+}
+
+:root[data-theme="dark"] .theme-toggle .icon-moon {
+  display: none;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+.menu-icon,
+.menu-icon::before,
+.menu-icon::after {
+  display: block;
+  width: 20px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transition: transform var(--transition-base), opacity var(--transition-base);
+}
+
+.menu-icon {
+  position: relative;
+}
+
+.menu-icon::before,
+.menu-icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.menu-icon::before {
+  top: -6px;
+}
+
+.menu-icon::after {
+  top: 6px;
+}
+
+.site-header.is-nav-open .menu-icon {
+  background: transparent;
+}
+
+.site-header.is-nav-open .menu-icon::before {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.site-header.is-nav-open .menu-icon::after {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* repo 页面右上角的 GitHub 角标，改为页头内的图标按钮 */
+.header-actions .github-corner {
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  color: var(--text);
+}
+
+.header-actions .github-corner svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   5. 导航
+   -------------------------------------------------------------------------- */
+.site-nav {
+  border-top: 1px solid var(--border);
+}
+
+.nav-inner {
+  width: min(var(--container), 100% - 2.5rem);
+  margin-inline: auto;
+  min-height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-list a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.5rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  font-weight: 500;
+  transition: color var(--transition-fast), background var(--transition-fast);
+}
+
+/* 圆角指示条：独立的伪元素，不与药丸圆角联动 */
+.nav-list a::after {
+  content: "";
+  position: absolute;
+  left: 0.8rem;
+  right: 0.8rem;
+  bottom: 0.3rem;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--primary);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform var(--transition-fast);
+}
+
+.nav-list a:hover {
+  background: var(--surface-2);
+  color: var(--text);
+  text-decoration: none;
+}
+
+.nav-list .active > a,
+.nav-list a[aria-current="page"] {
+  background: var(--accent-soft);
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.nav-list .active > a::after,
+.nav-list a[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+
+.nav-list-side {
+  margin-left: auto;
+}
+
+/* --------------------------------------------------------------------------
+   6. 页脚
+   -------------------------------------------------------------------------- */
+.site-footer {
+  flex-shrink: 0;
+  margin-top: auto;
+  background: var(--footer-bg);
+  border-top: 3px solid var(--primary);
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+.footer-inner {
+  width: min(var(--container), 100% - 2.5rem);
+  margin-inline: auto;
+  padding-block: 2rem 1.5rem;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.footer-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+}
+
+.footer-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.footer-brand img {
+  width: 24px;
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+}
+
+.footer-nav a {
+  color: var(--text-muted);
+}
+
+.footer-nav a:hover {
+  color: var(--primary);
+}
+
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  font-size: 0.8rem;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   7. 通用内容排版
+   -------------------------------------------------------------------------- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text);
+  font-weight: 700;
+  line-height: 1.3;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+h2 {
+  font-size: 1.25rem;
+}
+
+h3 {
+  font-size: 1.1rem;
+}
+
+p {
+  margin-block: 0.75em;
+}
+
+ul li,
+ol li {
+  margin-block: 0.25em;
+}
+
+pre {
+  overflow: auto;
+  margin: 1em;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface-2);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+code {
+  padding: 0.15em 0.35em;
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+/* --------------------------------------------------------------------------
+   8. 响应式
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  html {
+    scroll-padding-top: calc(var(--header-height) + 16px);
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+  }
+
+  .site-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: grid;
+    grid-template-rows: 0fr;
+    overflow: hidden;
+    background: var(--surface);
+    border-top: 0;
+    box-shadow: none;
+    transition: grid-template-rows var(--transition-base);
+  }
+
+  .site-header.is-nav-open .site-nav {
+    grid-template-rows: 1fr;
+    box-shadow: var(--shadow-md);
+  }
+
+  .nav-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    min-height: 0;
+    padding-block: 0;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    align-items: stretch;
+    padding-block: 0.5rem;
+  }
+
+  .nav-list a {
+    padding: 0.8rem 1rem;
+  }
+
+  .nav-list .active > a,
+  .nav-list a[aria-current="page"] {
+    border-left: 3px solid var(--primary);
+  }
+
+  .nav-list .active > a::after,
+  .nav-list a[aria-current="page"]::after {
+    display: none;
+  }
+
+  .nav-list-side {
+    margin-left: 0;
+    border-top: 1px solid var(--border);
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+  }
+}
+
+@supports (padding: env(safe-area-inset-bottom)) {
+  .footer-inner {
+    padding-bottom: calc(1.5rem + env(safe-area-inset-bottom));
+  }
+}
+
+/* --------------------------------------------------------------------------
+   9. 动效与可访问性
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --border: var(--border-strong);
+    --text-muted: var(--text);
   }
 }
