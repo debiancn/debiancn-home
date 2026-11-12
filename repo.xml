@@ -4,6 +4,7 @@
   <description>Debian 中文社区软件仓库，提供常用链接、域名选择与仓库新闻通知。</description>
   <og-url>https://repo.debiancn.org/</og-url>
 
+  <link href="./css/index.css" rel="stylesheet" />
   <link href="./css/repo.css" rel="stylesheet" />
   <link href="./css/github-corner.css" rel="stylesheet" />
 
@@ -50,66 +51,66 @@
     </li>
   </navbar>
 
+  <script src="./js/repo.js" defer="defer" />
+
   <body>
-    <div class="tab-content">
-      <div class="d-flex flex-row flex-column-sm-down">
-        <div class="file-index">
-          <div class="row">split-here</div>
-        </div>
-
-        <div class="content-left">
-          <div class="row">
-            <h1>常用链接</h1>
-            <ul>
-              <li>
-                <a href="https://github.com/debiancn/repo/blob/master/README.rst">软件仓库简介</a>
-              </li>
-              <li>
-                <a href="https://github.com/debiancn/repo/blob/master/README.rst#启用社区源的命令">软件仓库使用帮助</a>
-              </li>
-              <li>
-                <a href="https://github.com/debiancn/repo/blob/master/README.rst#软件包一览">软件包列表</a>
-              </li>
-              <li>
-                <a href="https://github.com/debiancn/repo/blob/master/README.rst#向社区源提交一个软件包">参与社区软件包贡献</a>
-              </li>
-            </ul>
+    <div class="layout-grid">
+      <div class="layout-main">
+        <section class="card file-index" aria-labelledby="file-title">
+          <div class="card-header">
+            <h1 class="section-title" id="file-title">文件列表</h1>
+            <span class="card-actions" id="file-path">/</span>
           </div>
-          <div class="row">
-            <h1>域名选择</h1>
-            <ul>
-              <li>
-                <a href="//repo.debiancn.org">repo.debiancn.org</a> 自动解析
-              </li>
-              <li>
-                <a href="//repo4.debiancn.org">repo4.debiancn.org</a> IPv4 线路
-              </li>
-              <li>
-                <a href="//repo6.debiancn.org">repo6.debiancn.org</a> IPv6 线路
-              </li>
-              <li>
-                <a href="https://github.com/debiancn/repo/issues/60">镜像站点列表</a>
-              </li>
-            </ul>
-          </div>
-          <div class="row">
-            <h1>仓库新闻通知</h1>
-          </div>
-        </div>
+          <div class="file-table">split-here</div>
+        </section>
       </div>
-    </div>
 
-    <section class="disc">
-      Debian 中文社区软件仓库是由 Debian 中文社区维护的软件仓库主要收录了一些
-      <a href="https://packages.debian.org">Debian 官方软件仓库</a>中由于种种原因并未收录的软件包。可以作为对
-      Debian 官方软件仓库的一个补充，建立
-      Debian 中文社区的主要目的是方便 Debian 中文用户使用 Debian。
-      <br />
-      目前 Debian 中文社区软件仓库的大部分软件主要提供了对
-      <a href="https://www.debian.org/ports/amd64/">amd64</a> 架构的支持，另外有部分软件提供了对
-      <a href="https://www.debian.org/ports/i386/">i386</a> 架构的支持，并且提供软件源码包。
-      <br />
-      其他信息详见 Debian 中文社区 <a href="https://github.com/debiancn/repo">GitHub 仓库</a>。
-    </section>
+      <aside class="layout-side">
+        <section class="card">
+          <h2 class="section-title">常用链接</h2>
+          <ul class="link-list">
+            <li>
+              <a href="https://github.com/debiancn/repo/blob/master/README.rst">软件仓库简介</a>
+            </li>
+            <li>
+              <a href="https://github.com/debiancn/repo/blob/master/README.rst#启用社区源的命令">软件仓库使用帮助</a>
+            </li>
+            <li>
+              <a href="https://github.com/debiancn/repo/blob/master/README.rst#软件包一览">软件包列表</a>
+            </li>
+            <li>
+              <a href="https://github.com/debiancn/repo/blob/master/README.rst#向社区源提交一个软件包">参与社区软件包贡献</a>
+            </li>
+          </ul>
+        </section>
+        <section class="card">
+          <h2 class="section-title">域名选择</h2>
+          <ul class="link-list">
+            <li>
+              <a href="//repo.debiancn.org">repo.debiancn.org<span class="link-note">自动解析</span></a>
+            </li>
+            <li>
+              <a href="//repo4.debiancn.org">repo4.debiancn.org<span class="link-note">IPv4 线路</span></a>
+            </li>
+            <li>
+              <a href="//repo6.debiancn.org">repo6.debiancn.org<span class="link-note">IPv6 线路</span></a>
+            </li>
+            <li>
+              <a href="https://github.com/debiancn/repo/issues/60">镜像站点列表</a>
+            </li>
+          </ul>
+        </section>
+        <section class="card">
+          <h2 class="section-title">仓库新闻通知</h2>
+          <p class="card-cta">仓库动态会同步到社区论坛与 Telegram，欢迎关注。</p>
+        </section>
+      </aside>
+
+      <section class="card disc">
+        <h2 class="section-title">关于软件仓库</h2>
+        <p>Debian 中文社区软件仓库是由 Debian 中文社区维护的软件仓库，主要收录了一些 Debian 官方软件仓库中由于种种原因并未收录的软件包，可以作为对 Debian 官方软件仓库的一个补充。</p>
+        <p>目前仓库大部分软件主要提供对 amd64 架构的支持，另外有部分软件提供对 i386 架构的支持，并提供软件源码包。其他信息详见 Debian 中文社区 GitHub 仓库。</p>
+      </section>
+    </div>
   </body>
 </webpage>

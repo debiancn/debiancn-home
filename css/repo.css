@@ -1,7 +1,12 @@
 /* ==========================================================================
    Debian 中文软件仓库 — repo.css
-   仓库页面：搜索框 / 文件索引 / 侧栏 / 说明
+   仓库页面：文件列表 / 侧栏 / 说明
+   依赖 base.css 的设计令牌与 index.css 的卡片 / 布局样式
    ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. 搜索框（页头内，repo 页面补充样式）
+   -------------------------------------------------------------------------- */
 
 .search-form {
   margin: 0 .5em;
@@ -48,182 +53,180 @@
   color: var(--primary);
 }
 
-h1 {
-  font-size: 1.5em;
-  padding-left: .83em;
-  line-height: 1.875em;
-  margin-top: 0;
+/* --------------------------------------------------------------------------
+   2. 文件列表
+   -------------------------------------------------------------------------- */
+
+.file-table {
+  min-width: 0;
 }
 
-.tab-content > * {
-  margin-bottom: 3.125em;
-}
-
-.tab-content > .d-flex {
-  justify-content: space-between;
-}
-
-.file-index {
-  min-width: 65%;
-}
-
-.file-index a {
-  text-decoration: underline;
-}
-
-.content-left {
-  min-width: 30%;
-}
-
-.content-left ul {
-  margin-top: 10px;
-  margin-left: 20px;
-  padding-left: 0;
-  list-style-type: none;
-  font-size: 1em;
-  line-height: 1.4em;
-}
-
-.content-left ul li a {
+/* JS 未启用时的回退：保留 autoindex 的标题与列表 */
+.file-table > h1 {
+  margin: 0 0 .75rem;
+  font-size: .9rem;
+  font-weight: 500;
   color: var(--text-muted);
 }
 
-.content-left ul li a:hover {
-  color: var(--primary);
+.file-table > hr {
+  display: none;
 }
 
-/* 搜索结果 */
-.searchResult {
-  display: none;
-  position: absolute;
+.file-table > pre {
   margin: 0;
-  margin-top: 3px;
-  padding: 0;
-  background-color: var(--surface);
-  border-bottom: 3px solid var(--primary);
-  max-height: 10em;
-  max-width: 30em;
-  overflow-y: auto;
-  overflow-x: hidden;
-  font-size: 0.9em;
-  box-shadow: var(--shadow-md);
 }
 
-.searchResult li {
-  list-style: none;
-  text-indent: 0;
-  padding: 3px 5px;
-  white-space: nowrap;
+/* JS 启用后生成的文件列表 */
+.file-list {
+  display: grid;
+  gap: .25rem;
 }
 
-.searchResult li:nth-child(odd) {
-  background-color: var(--surface-2);
-}
-
-.searchResult li:nth-child(even) {
-  background-color: var(--accent-soft);
-}
-
-.searchResult li a:first-child {
-  color: var(--text-muted);
-}
-
-.searchResult li a:first-child:hover {
-  color: var(--primary);
-}
-
-hr {
-  display: none;
-}
-
-pre {
-  overflow: auto;
-  margin: 1em;
-  line-height: 2em;
-  font-family: var(--font-mono);
+.file-row {
+  display: grid;
+  grid-template-columns: 1.25rem minmax(0, 1fr) 10rem 5rem;
+  align-items: center;
+  gap: .75rem;
+  padding: .55rem .75rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
   color: var(--text);
-}
-
-/* ***** */
-/* Icons */
-/* ***** */
-
-pre a[href]:before {
-  content: "\200B";
   text-decoration: none;
-  padding-top: 5px;
-  padding-right: 25px;
-  background-repeat: no-repeat;
-  background-position: left bottom;
+  transition: background var(--transition-fast), border-color var(--transition-fast);
 }
 
-pre a[href]:before {
+.file-row:hover {
+  background: var(--surface-2);
+  border-color: var(--border);
+}
+
+.file-header {
+  color: var(--text-muted);
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border);
+  border-radius: 0;
+  padding-inline: .75rem;
+}
+
+.file-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
   background-image: url(../images/icons/default.png);
 }
 
-pre a[href$="/"]:before {
+.file-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.file-date,
+.file-size {
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: .8rem;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.file-size {
+  font-variant-numeric: tabular-nums;
+}
+
+/* 文件类型图标 */
+a[href$="/"] .file-icon {
   background-image: url(../images/icons/folder.png);
 }
 
-pre a[href$="../"]:before {
+a[href$="../"] .file-icon {
   background-image: url(../images/icons/folder-parent-old.png);
 }
 
-/* Checksums */
-
-pre a[href$=".md5"]:before {
+a[href$=".md5"] .file-icon,
+a[href$=".gpg"] .file-icon {
   background-image: url(../images/icons/checksum.png);
 }
 
-/* Compression */
-
-pre a[href$=".gz"]:before {
+a[href$=".gz"] .file-icon,
+a[href$=".xz"] .file-icon {
   background-image: url(../images/icons/zip.png);
 }
 
-pre a[href$=".xz"]:before {
-  background-image: url(../images/icons/zip.png);
-}
-
-/* Vagrant */
-
-pre a[href$=".box"]:before {
+a[href$=".box"] .file-icon {
   background-image: url(../images/icons/vagrant.png);
 }
 
-/* Debian */
-
-pre a[href$=".deb"]:before {
+a[href$=".deb"] .file-icon {
   background-image: url(../images/icons/deb.png);
 }
 
-pre a[href$=".dsc"]:before {
+a[href$=".dsc"] .file-icon {
   background-image: url(../images/icons/text.png);
 }
 
-pre a[href$=".json"]:before {
+a[href$=".json"] .file-icon {
   background-image: url(../images/icons/json.png);
 }
 
-/* Crypt */
+/* --------------------------------------------------------------------------
+   3. 侧栏
+   -------------------------------------------------------------------------- */
 
-pre a[href$=".gpg"]:before {
-  background-image: url(../images/icons/checksum.png);
+.file-index .card-actions {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: .8rem;
 }
 
-/* footer disc */
+.layout-side .card-cta {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: .9rem;
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   4. 说明
+   -------------------------------------------------------------------------- */
 
 .disc {
-  padding: 1.25em 40% 1.25em 9%;
-  border-top: 1px solid var(--border);
-  background-color: var(--surface-2);
-  color: var(--text-muted);
-  font-size: 0.9em;
-  line-height: 1.4;
+  grid-column: 1 / -1;
 }
 
-@media screen and ( max-width: 768px ) {
-  .disc {
-    padding-right: 9%;
+.disc p {
+  margin: 0 0 .75em;
+  color: var(--text-muted);
+  font-size: .9rem;
+  line-height: 1.7;
+}
+
+.disc p:last-child {
+  margin-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
+   5. 响应式
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 640px) {
+  .file-row {
+    grid-template-columns: 1.25rem minmax(0, 1fr) 4.5rem;
+  }
+
+  .file-date {
+    display: none;
   }
 }

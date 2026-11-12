@@ -6,6 +6,7 @@ STATIC_ROOT := $(if $(STATIC_ROOT),$(STATIC_ROOT),.)
 WGET := wget --header='Accept-Language: zh-CN,zh;q=0.9,en;q=0.8'
 WGET4 := $(WGET) -4
 XSLTPROC := xsltproc
+MV ?= mv
 ifneq ($(STATIC_ROOT),)
 	override XSLTPROC += --stringparam static-root $(STATIC_ROOT)
 endif
