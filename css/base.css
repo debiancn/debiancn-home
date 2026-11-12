@@ -678,6 +678,53 @@ ol li {
   margin-block: 0.25em;
 }
 
+/* 独立内容页（如隐私政策）：限制阅读宽度、居中并卡片化 */
+.page {
+  width: min(760px, 100% - 2.5rem);
+  margin-inline: auto;
+  padding-block: clamp(1.5rem, 4vw, 3rem);
+}
+
+.prose {
+  padding: clamp(1.25rem, 3vw, 2.5rem);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.prose > :first-child {
+  margin-top: 0;
+}
+
+.prose > :last-child {
+  margin-bottom: 0;
+}
+
+.prose h1 {
+  margin-bottom: 1em;
+  padding-bottom: 0.6em;
+  border-bottom: 1px solid var(--border);
+}
+
+.prose ol,
+.prose ul {
+  margin-block: 0.75em;
+}
+
+.prose li {
+  margin-block: 0.4em;
+}
+
+.prose li > ul,
+.prose li > ol {
+  margin-block: 0.35em;
+}
+
+.prose li > ul {
+  list-style-type: disc;
+}
+
 pre {
   overflow: auto;
   margin: 1em;
