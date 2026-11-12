@@ -8,6 +8,7 @@ Debian 中文社区（<https://www.debiancn.org/>）的首页源码。页面通�
 - **响应式**：移动端折叠菜单、流式布局、安全区适配（`env(safe-area-inset-*)`）。
 - **日夜模式**：跟随系统 `prefers-color-scheme`，并提供手动切换按钮；选择保存在 `localStorage`。
 - **现代浏览器能力**：CSS 自定义属性、`color-scheme`、`backdrop-filter`、`:focus-visible`、`prefers-reduced-motion`、`prefers-contrast`、`<time>` 语义化日期。
+- **全仓库软件包搜索**：软件源页导航栏支持按包名搜索全部社区仓库，结果来自站点的 `/info/*.json`，选中后跳转到包所在目录；索引在 `localStorage` 中缓存 12 小时。
 - **可访问性**：跳转链接、ARIA 状态、键盘可达、足够的颜色对比度。
 - **无外部依赖**：不依赖 CDN 或第三方 CSS/JS，可完全离线构建。
 
@@ -29,6 +30,7 @@ Debian 中文社区（<https://www.debiancn.org/>）的首页源码。页面通�
 ├── js/
 │   ├── theme.js         # 日夜模式切换
 │   ├── navbar.js        # 移动端菜单
+│   ├── repo.js          # 软件源页：文件列表 + 软件包搜索
 │   └── tab.js           # 首页标签页
 ├── images/              # Logo、图标与 favicon
 └── rss/                 # 构建时自动下载的 RSS 源（不纳入版本库）
@@ -62,6 +64,20 @@ python3 -m http.server 8000
 -  Debian 新闻：<https://www.debian.org/News/news>
 - 安全公告：<https://www.debian.org/security/dsa>
 - 社区论坛新闻：<https://forums.debiancn.org/c/5-category.rss>
+
+## 软件包搜索
+
+软件源页导航栏的搜索框会按包名搜索社区仓库中的全部软件包。数据来自站点上已经存在的 JSON 索引：
+
+```
+/info/trixie.json
+/info/bookworm.json
+/info/bullseye.json
+```
+
+这些文件由仓库服务器上的 `custodian` 定时生成（结构为 `{"main": {"amd64": [...]}}`）。前端首次搜索时才加载，按包名去重后只保留“包名 → 目录”，并缓存到 `localStorage`（键名 `debiancn-repo-search-v1`，有效期 12 小时）。搜索结果选中后跳转到 `pool/main/...` 下对应的包目录，`-dbgsym`/`-dbg` 调试包会被隐藏。
+
+新增发行版代号时，需要同步更新 `js/repo.js` 顶部的 `INDEX_URLS`。站点外的本地预览没有 `/info/*.json`，搜索会提示“全仓库搜索暂不可用”。
 
 ## 主题
 

@@ -39,9 +39,13 @@
     <li class="active">
       <a href="#">软件源</a>
     </li>
-    <form align="right" class="search-form" action="" onsubmit="return false;"><!-- method="post" id="searchForm"> -->
-      <input type="search" name="search" id="search" placeholder="Search" autocomplete="off" />
-      <input type="submit" name="" id="search-submit" value="搜索" />
+    <form class="search-form" role="search" action="">
+      <label class="visually-hidden" for="search">搜索软件包</label>
+      <input type="search" name="search" id="search" placeholder="搜索软件包" autocomplete="off"
+             role="combobox" aria-expanded="false" aria-controls="search-results"
+             aria-autocomplete="list" aria-label="搜索软件包" />
+      <input type="submit" id="search-submit" value="搜索" />
+      <ul class="search-results" id="search-results" role="listbox" aria-label="软件包搜索结果" hidden="hidden" />
     </form>
     <li align="right" class="hidden-md-up">
       <a href="https://github.com/debiancn/repo">GitHub 仓库</a>

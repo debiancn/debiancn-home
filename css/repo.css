@@ -5,52 +5,98 @@
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   1. 搜索框（页头内，repo 页面补充样式）
+   1. 搜索框与搜索结果（页头内，repo 页面补充样式）
    -------------------------------------------------------------------------- */
 
 .search-form {
-  margin: 0 .5em;
+  position: relative;
   display: flex;
   align-items: center;
-}
-
-@media screen and ( max-width: 930px ) {
-  .search-form {
-    display: none;
-  }
-}
-
-.search-form > * {
-  margin: 0 .25em;
-  height: 1.5em;
+  gap: .5rem;
+  min-width: 0;
+  margin: 0 .75em;
 }
 
 #search {
-  width: 12em;
-  padding: .25rem .5rem;
+  width: clamp(7rem, 14vw, 13rem);
+  height: 2.25rem;
+  padding: 0 .65rem;
   border: 1px solid var(--border-strong);
   border-radius: var(--radius-sm);
   background: var(--surface);
   color: var(--text);
+  font-size: .9rem;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
-@media screen and ( max-width: 1200px ) {
-  #search {
-    width: 8em;
-  }
+#search::placeholder {
+  color: var(--text-muted);
+}
+
+#search:focus {
+  border-color: var(--primary);
+  outline: none;
+  box-shadow: 0 0 0 3px var(--ring);
 }
 
 #search-submit {
-  padding: .25rem .8rem;
+  height: 2.25rem;
+  padding: 0 .9rem;
   border: 1px solid var(--border-strong);
   border-radius: var(--radius-sm);
   background: var(--surface-2);
   color: var(--text);
+  font-size: .9rem;
+  white-space: nowrap;
 }
 
 #search-submit:hover {
   border-color: var(--primary);
   color: var(--primary);
+}
+
+/* 下拉搜索结果，仅显示包名 */
+.search-results {
+  position: absolute;
+  top: calc(100% + .4rem);
+  right: 0;
+  z-index: 150;
+  width: min(20rem, calc(100vw - 2.5rem));
+  max-height: min(60vh, 24rem);
+  margin: 0;
+  padding: .35rem;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  list-style: none;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+}
+
+.search-results[hidden] {
+  display: none;
+}
+
+.search-result {
+  padding: .5rem .75rem;
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: .875rem;
+  cursor: pointer;
+}
+
+.search-result:hover,
+.search-result[aria-selected="true"] {
+  background: var(--accent-soft);
+  color: var(--primary);
+}
+
+.search-status {
+  padding: .5rem .75rem;
+  color: var(--text-muted);
+  font-size: .85rem;
 }
 
 /* --------------------------------------------------------------------------
@@ -220,6 +266,36 @@ a[href$=".json"] .file-icon {
 /* --------------------------------------------------------------------------
    5. 响应式
    -------------------------------------------------------------------------- */
+
+@media (max-width: 768px) {
+  .search-form {
+    flex-wrap: wrap;
+    margin: .25rem 1rem .75rem;
+  }
+
+  #search {
+    flex: 1 1 auto;
+    width: auto;
+    min-width: 0;
+  }
+
+  /* 移动端导航栏使用 overflow: hidden 做展开动画，
+     结果面板改为文档流内展开，避免被裁剪。 */
+  .search-results {
+    position: static;
+    flex: 1 0 100%;
+    width: 100%;
+    max-height: 40vh;
+    margin-top: .5rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .site-header.is-nav-open .site-nav {
+    max-height: calc(100vh - var(--header-height));
+    max-height: calc(100dvh - var(--header-height));
+    overflow-y: auto;
+  }
+}
 
 @media (max-width: 640px) {
   .file-row {
